@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview - Sve kartice</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="page-title">Sve kartice (<%= cards.length %>)</h1>
+
+    <ul class="preview-list">
+      <% cards.forEach(card => { %>
+        <li class="preview-item">
+          <h3><%= card.chapter %> - Kartica <%= card.id %></h3>
+          <p><%= card.question %></p>
+          <p style="font-size: 0.75rem; color: #999;">
+            choiceOrder: [<%= card.choiceOrder.join(', ') %>]
+            | next: <%= card.nextCardId || 'FINALE' %>
+          </p>
+          <div class="preview-links">
+            <a href="/q/<%= card.qToken %>">Pitanje</a>
+            <a href="/a/<%= card.aTokens[0] %>">Odg 1</a>
+            <a href="/a/<%= card.aTokens[1] %>">Odg 2</a>
+            <a href="/a/<%= card.aTokens[2] %>">Odg 3</a>
+            <a href="/p/answers/<%= card.pToken %>" target="_blank">Print odgovore</a>
+            <% if (card.nextCardId) { %>
+              <a href="/p/next/<%= card.pToken %>" target="_blank">Print sljedeće pitanje</a>
+            <% } %>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>

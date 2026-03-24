@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= card.chapter %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <p class="chapter"><%= card.chapter %></p>
+
+    <div class="intro"><%= card.intro %></div>
+
+    <h1 class="question"><%= card.question %></h1>
+
+    <div class="choices">
+      <% choices.forEach((c, i) => { %>
+        <div class="choice-item">
+          <span class="choice-num"><%= i + 1 %></span>
+          <span><%= c.label %></span>
+        </div>
+      <% }) %>
+    </div>
+
+    <div class="print-section">
+      <p>Preuzmi QR kodove za odgovore, isprintaj ih i zalijepi ispod.</p>
+      <a href="<%= answersPrintUrl %>" class="btn btn-primary" download="odgovori.png">Preuzmi QR kodove</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odgovor</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <p class="chapter"><%= card.chapter %></p>
+
+    <span class="type-badge <%= type %>">
+      <% if (type === 'emotional') { %>nježno
+      <% } else if (type === 'flirty') { %>flirty
+      <% } else { %>smiješno<% } %>
+    </span>
+
+    <p class="reaction"><%= response.reaction %></p>
+
+    <div class="answer-text">
+      <%= response.text %>
+    </div>
+
+    <div class="print-section">
+      <p>Preuzmi QR kod za sljedeću stranicu, isprintaj ga i zalijepi u svesku.</p>
+      <a href="<%= nextQrPrintUrl %>" class="btn btn-primary" download="sljedece-pitanje.png">Preuzmi QR kod</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "qr-love-game",
+  "version": "1.0.0",
+  "description": "Interactive romantic QR game for a physical A5 notebook with thermal printer stickers",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.33.5"
+  }
+}

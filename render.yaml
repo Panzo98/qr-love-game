@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: qr-love-game
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: BASE_URL
+        sync: false
+      - key: NODE_ENV
+        value: production

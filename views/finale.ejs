@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finale</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="finale-heart">&#10084;&#65039;</div>
+    <h1 class="finale-title">Stigla si do kraja!</h1>
+
+    <span class="type-badge <%= type %>">
+      <% if (type === 'emotional') { %>nježno
+      <% } else if (type === 'flirty') { %>flirty
+      <% } else { %>smiješno<% } %>
+    </span>
+
+    <p class="reaction"><%= response.reaction %></p>
+
+    <div class="answer-text">
+      <%= response.text %>
+    </div>
+
+    <div class="next-step" style="border-style: solid; border-color: #c9956c;">
+      <h3>Hvala ti</h3>
+      <p>Ova sveska je moj mali način da ti kažem koliko mi značiš. Svaka stranica, svaki QR kod, svaka riječ - sve je za tebe.</p>
+      <p style="font-size: 1.2rem; margin-top: 12px;">Volim te.</p>
+    </div>
+  </div>
+</body>
+</html>

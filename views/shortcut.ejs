@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postavi Apple Shortcut</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .step { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid #f0e0d0; }
+    .step-num { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; background: #c9956c; color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.9rem; margin-right: 10px; }
+    .step-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 8px; }
+    .action { background: #fdf6f0; padding: 10px 14px; border-radius: 8px; margin: 8px 0; font-size: 0.88rem; border-left: 3px solid #e8c4a0; }
+    .action strong { color: #c9956c; }
+    code { background: #e8c4a0; padding: 2px 6px; border-radius: 4px; font-size: 0.82rem; }
+    .note { font-size: 0.82rem; color: #999; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="page-title">Apple Shortcut Setup</h1>
+
+    <div class="intro">
+      Napravi Shortcut na iPhoneu za skeniranje QR kodova iz sveske. Nema otvaranja browsera - sve je native popup + automatski save slike u Photos.
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Otvori Shortcuts app</div>
+      <p style="font-size: 0.9rem;">Tapni <strong>+</strong> gore desno za novi Shortcut.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Dodaj akcije</div>
+      <p style="font-size: 0.85rem; margin-bottom: 10px;">Dodaj ove akcije redom (traži ih u search baru):</p>
+
+      <div class="action">
+        <strong>Scan QR/Barcode</strong><br>
+        Skenira QR kod kamerom.
+      </div>
+
+      <div class="action">
+        <strong>Replace Text</strong><br>
+        U polju "Find": upiši <code>/(q|a)/</code><br>
+        U polju "Replace with": upiši <code>/api/$1/</code><br>
+        Uključi <strong>Regular Expression</strong> toggle.<br>
+        Input: <em>QR/Barcode Result</em>
+        <p class="note">Ovo pretvara URL iz QR koda (npr. /q/abc) u API URL (/api/q/abc)</p>
+      </div>
+
+      <div class="action">
+        <strong>Get Contents of URL</strong><br>
+        URL: <em>Updated Text</em> (rezultat prethodnog koraka)
+        <p class="note">Poziva API i dobija JSON sa tekstom i print URL-om</p>
+      </div>
+
+      <div class="action">
+        <strong>Get Dictionary Value</strong><br>
+        Get value for key: <code>display</code><br>
+        From: <em>Contents of URL</em>
+      </div>
+
+      <div class="action">
+        <strong>Show Alert</strong><br>
+        Alert: <em>Dictionary Value</em> (display tekst)<br>
+        <p class="note">Prikazuje pitanje ili odgovor kao native iOS popup</p>
+      </div>
+
+      <div class="action">
+        <strong>Get Dictionary Value</strong><br>
+        Get value for key: <code>printUrl</code><br>
+        From: <em>Contents of URL</em> (vrati se na rezultat koraka 3)
+      </div>
+
+      <div class="action">
+        <strong>If</strong><br>
+        Condition: <em>Dictionary Value</em> <strong>has any value</strong><br>
+        <p class="note">Finale nema printUrl, pa preskačemo download u tom slučaju</p>
+      </div>
+
+      <div class="action">
+        <strong>Get Contents of URL</strong><br>
+        URL: <em>Dictionary Value</em> (printUrl)
+        <p class="note">Skida PNG sliku sa QR kodom/kodovima</p>
+      </div>
+
+      <div class="action">
+        <strong>Save to Photo Album</strong><br>
+        Album: <em>Recents</em><br>
+        <p class="note">Slika se automatski sačuva u Photos - odatle je printaš</p>
+      </div>
+
+      <div class="action">
+        <strong>End If</strong>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Imenuj i dodaj na Home Screen</div>
+      <p style="font-size: 0.9rem;">Tapni na ime Shortcuta gore, nazovi ga npr. <strong>"Sveska"</strong>.<br>
+      Tapni <strong>Share</strong> > <strong>Add to Home Screen</strong>.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">4</span> Koristi!</div>
+      <p style="font-size: 0.9rem;">
+        Tapni ikonu na Home Screen > skeniraj QR iz sveske > čitaj popup > slika se sama sačuva u Photos > printaj.
+      </p>
+    </div>
+
+    <div class="print-section" style="margin-top: 24px;">
+      <h3 style="margin-bottom: 8px; color: #b07d62;">API Base URL</h3>
+      <p style="font-size: 0.85rem;">Tvoj server:</p>
+      <p style="margin-top: 4px;">
+        <code style="font-size: 0.9rem; word-break: break-all;"><%= baseUrl %></code>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
