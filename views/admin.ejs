@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – Upload</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .slot { border: 2px dashed #ccc; border-radius: 8px; padding: 0.75rem; text-align: center; font-size: 0.85rem; }
+    .slot.filled { border-color: #4caf50; border-style: solid; }
+    .slot img { width: 100%; height: 90px; object-fit: cover; border-radius: 4px; margin-bottom: 0.5rem; display: block; }
+    .slot-label { font-weight: 600; margin-bottom: 0.4rem; }
+    .upload-form { display: flex; flex-direction: column; gap: 0.4rem; }
+    .upload-form input[type=file] { font-size: 0.75rem; }
+    .upload-form button { padding: 0.3rem 0.6rem; font-size: 0.75rem; cursor: pointer; border: none; background: #222; color: #fff; border-radius: 4px; }
+    .audio-section { border: 2px dashed #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; }
+    .audio-section.ok { border-color: #4caf50; border-style: solid; }
+    .msg { padding: 0.6rem 1rem; border-radius: 6px; background: #e8f5e9; color: #2e7d32; margin-bottom: 1rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="chapter">Admin</p>
+    <h1 class="question" style="font-size:1.4rem;">Upload fajlova</h1>
+
+    <% if (message) { %><div class="msg"><%= message %></div><% } %>
+
+    <h2 style="font-size:1rem; margin-bottom:0.5rem;">🎵 Muzika (Playground – Bea Miller)</h2>
+    <div class="audio-section <%= audioExists ? 'ok' : '' %>">
+      <% if (audioExists) { %>
+        <p style="color:#2e7d32; font-size:0.85rem;">✓ playground.mp3 je uploadovan</p>
+        <audio controls src="/audio/playground.mp3" style="width:100%; margin-top:0.5rem;"></audio>
+        <form method="POST" action="/admin/upload-audio" enctype="multipart/form-data" style="margin-top:0.75rem;">
+          <input type="file" name="audio" accept="audio/*" required>
+          <button type="submit">Zamijeni</button>
+        </form>
+      <% } else { %>
+        <p style="color:#999; font-size:0.85rem;">Nema fajla. Uploaduj playground.mp3:</p>
+        <form method="POST" action="/admin/upload-audio" enctype="multipart/form-data" style="margin-top:0.5rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <input type="file" name="audio" accept="audio/*" required>
+          <button type="submit">Upload</button>
+        </form>
+      <% } %>
+    </div>
+
+    <h2 style="font-size:1rem; margin-bottom:0.5rem;">📸 Slike (1–10)</h2>
+    <div class="admin-grid">
+      <% slots.forEach(slot => { %>
+        <div class="slot <%= slot.exists ? 'filled' : '' %>">
+          <div class="slot-label">Slika <%= slot.n %></div>
+          <% if (slot.exists) { %>
+            <img src="/photos/<%= slot.file %>?t=<%= Date.now() %>" alt="foto <%= slot.n %>">
+          <% } else { %>
+            <div style="height:90px; display:flex; align-items:center; justify-content:center; color:#bbb; font-size:0.75rem;">nema</div>
+          <% } %>
+          <form method="POST" action="/admin/upload-photo" enctype="multipart/form-data" class="upload-form">
+            <input type="hidden" name="slot" value="<%= slot.n %>">
+            <input type="file" name="photo" accept="image/*" required>
+            <button type="submit"><%= slot.exists ? 'Zamijeni' : 'Upload' %></button>
+          </form>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>

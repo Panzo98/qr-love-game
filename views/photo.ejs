@@ -118,17 +118,21 @@
 
     audio.volume = 0.6;
 
+    audio.addEventListener('error', () => { btn.textContent = '✕'; btn.title = 'Nema audio fajla'; });
+
+    function tryPlay() {
+      audio.play()
+        .then(() => { btn.textContent = '⏸'; })
+        .catch(() => { btn.textContent = '▶'; });
+    }
+
     // Try autoplay; if blocked, user taps button
-    audio.play().then(() => { btn.textContent = '⏸'; }).catch(() => {});
+    tryPlay();
 
     btn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        btn.textContent = '⏸';
-      } else {
-        audio.pause();
-        btn.textContent = '▶';
-      }
+      if (btn.textContent === '✕') return;
+      if (audio.paused) { tryPlay(); }
+      else { audio.pause(); btn.textContent = '▶'; }
     });
   </script>
 </body>
