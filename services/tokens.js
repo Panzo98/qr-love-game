@@ -1,56 +1,53 @@
 const crypto = require("crypto");
 const { getAllCards } = require("../config/gameData");
 
-// token → { cardId, slot? }   and   reverse lookups
-const tokenMap = new Map();      // token → payload
-const questionTokens = new Map(); // cardId → token
-const answerTokens = new Map();   // "cardId:slot" → token
-const printTokens = new Map();    // cardId → token
+// Deterministic tokens — same card ID always gives same token.
+// Change TOKEN_SECRET in .env to rotate all tokens if needed.
+const SECRET = process.env.TOKEN_SECRET || "qrlove-dev-secret";
 
-function makeToken() {
-  return crypto.randomBytes(6).toString("base64url"); // 8 chars, URL-safe
+const tokenMap = new Map();
+const questionTokens = new Map();
+const answerTokens = new Map();
+const printTokens = new Map();
+
+function tok(...parts) {
+  return crypto
+    .createHmac("sha256", SECRET)
+    .update(parts.join(":"))
+    .digest("base64url")
+    .slice(0, 10);
 }
 
 function init() {
-  if (tokenMap.size > 0) return; // already initialized
+  tokenMap.clear();
+  questionTokens.clear();
+  answerTokens.clear();
+  printTokens.clear();
 
-  const cards = getAllCards();
-  for (const card of cards) {
-    // Question token
-    const qTok = makeToken();
+  for (const card of getAllCards()) {
+    const qTok = tok("q", card.id);
     tokenMap.set(qTok, { type: "question", cardId: card.id });
     questionTokens.set(card.id, qTok);
 
-    // Answer tokens (one per slot) — skip for photo cards
     if (card.type !== "photo") {
-      for (let slot = 0; slot < 3; slot++) {
-        const aTok = makeToken();
-        tokenMap.set(aTok, { type: "answer", cardId: card.id, slot });
-        answerTokens.set(`${card.id}:${slot}`, aTok);
+      const n = (card.choiceOrder || []).length;
+      for (let s = 0; s < n; s++) {
+        const aTok = tok("a", card.id, s);
+        tokenMap.set(aTok, { type: "answer", cardId: card.id, slot: s });
+        answerTokens.set(`${card.id}:${s}`, aTok);
       }
     }
 
-    // Print token
-    const pTok = makeToken();
+    const pTok = tok("p", card.id);
     tokenMap.set(pTok, { type: "print", cardId: card.id });
     printTokens.set(card.id, pTok);
   }
 }
 
-function resolve(token) {
-  return tokenMap.get(token) || null;
-}
+function reinit() { init(); }
+function resolve(token) { return tokenMap.get(token) || null; }
+function questionToken(id) { return questionTokens.get(id); }
+function answerToken(id, slot) { return answerTokens.get(`${id}:${slot}`); }
+function printToken(id) { return printTokens.get(id); }
 
-function questionToken(cardId) {
-  return questionTokens.get(cardId);
-}
-
-function answerToken(cardId, slot) {
-  return answerTokens.get(`${cardId}:${slot}`);
-}
-
-function printToken(cardId) {
-  return printTokens.get(cardId);
-}
-
-module.exports = { init, resolve, questionToken, answerToken, printToken };
+module.exports = { init, reinit, resolve, questionToken, answerToken, printToken };

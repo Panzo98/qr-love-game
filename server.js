@@ -23,7 +23,6 @@ app.use("/p", require("./routes/print"));
 app.use("/api", require("./routes/api"));
 app.use("/shortcut", require("./routes/shortcut"));
 app.use("/preview", require("./routes/preview"));
-app.use(express.urlencoded({ extended: true }));
 app.use("/admin", require("./routes/admin"));
 
 // Root redirect to first card

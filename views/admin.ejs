@@ -1,67 +1,416 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin – Upload</title>
-  <link rel="stylesheet" href="/style.css">
-  <style>
-    .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .slot { border: 2px dashed #ccc; border-radius: 8px; padding: 0.75rem; text-align: center; font-size: 0.85rem; }
-    .slot.filled { border-color: #4caf50; border-style: solid; }
-    .slot img { width: 100%; height: 90px; object-fit: cover; border-radius: 4px; margin-bottom: 0.5rem; display: block; }
-    .slot-label { font-weight: 600; margin-bottom: 0.4rem; }
-    .upload-form { display: flex; flex-direction: column; gap: 0.4rem; }
-    .upload-form input[type=file] { font-size: 0.75rem; }
-    .upload-form button { padding: 0.3rem 0.6rem; font-size: 0.75rem; cursor: pointer; border: none; background: #222; color: #fff; border-radius: 4px; }
-    .audio-section { border: 2px dashed #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; }
-    .audio-section.ok { border-color: #4caf50; border-style: solid; }
-    .msg { padding: 0.6rem 1rem; border-radius: 6px; background: #e8f5e9; color: #2e7d32; margin-bottom: 1rem; font-size: 0.9rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0d0d0d;color:#d4d4d4;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+code{font-family:monospace;font-size:0.85em;color:#888}
+
+/* Header */
+header{background:#161616;border-bottom:1px solid #2a2a2a;padding:0.55rem 1rem;display:flex;align-items:center;gap:0.75rem;flex-shrink:0}
+header h1{font-size:0.95rem;font-weight:600;color:#fff}
+.hdr-sep{color:#333}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:0.5rem}
+
+/* Layout */
+.layout{display:flex;flex:1;overflow:hidden}
+
+/* Sidebar */
+.sidebar{width:250px;background:#111;border-right:1px solid #2a2a2a;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+.sidebar-hdr{padding:0.5rem 0.75rem;border-bottom:1px solid #2a2a2a;font-size:0.65rem;color:#555;text-transform:uppercase;letter-spacing:0.05em;flex-shrink:0}
+.card-list{flex:1;overflow-y:auto}
+
+.card-item{padding:0.55rem 0.75rem;border-bottom:1px solid #1a1a1a;cursor:pointer;display:flex;align-items:flex-start;gap:0.45rem;transition:background 0.1s}
+.card-item:hover{background:#181818}
+.card-item.sel{background:#162030;border-left:2px solid #3b82f6}
+.card-item.inactive{opacity:0.28}
+.card-item.inactive:hover{opacity:0.5}
+.ci-icon{font-size:0.85rem;flex-shrink:0;margin-top:1px}
+.ci-body{flex:1;min-width:0}
+.ci-id{font-size:0.6rem;color:#555}
+.ci-text{font-size:0.75rem;color:#bbb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.ci-tags{display:flex;gap:0.25rem;margin-top:3px;flex-wrap:wrap}
+.tag{font-size:0.55rem;padding:0.1rem 0.3rem;border-radius:2px;font-weight:700;text-transform:uppercase}
+.tag-q{background:#0d2030;color:#5ba3c9}
+.tag-photo{background:#0d2a0d;color:#6bc96b}
+.tag-tbc{background:#2a0d0d;color:#c96b6b}
+.tag-off{background:#222;color:#555}
+.seq-div{padding:0.35rem 0.75rem;font-size:0.6rem;color:#444;text-transform:uppercase;letter-spacing:0.05em;background:#0d0d0d;border-bottom:1px solid #1a1a1a}
+
+/* Editor */
+.editor{flex:1;overflow:hidden;display:flex;flex-direction:column}
+.editor-empty{flex:1;display:flex;align-items:center;justify-content:center;color:#333;font-size:0.9rem}
+.editor-scroll{flex:1;overflow-y:auto;padding:1.25rem 1.5rem}
+.ed-title{font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:1.1rem;display:flex;align-items:center;gap:0.5rem}
+
+/* Form */
+.fr{margin-bottom:0.9rem}
+.fl{display:block;font-size:0.65rem;color:#555;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.3rem}
+input[type=text],textarea,select{width:100%;background:#181818;border:1px solid #2d2d2d;color:#d4d4d4;padding:0.4rem 0.6rem;border-radius:5px;font-size:0.85rem;font-family:inherit;outline:none;transition:border-color 0.15s}
+input[type=text]:focus,textarea:focus,select:focus{border-color:#3b6aa0}
+textarea{min-height:65px;resize:vertical}
+select option{background:#181818}
+
+/* Toggles */
+.tg-group{display:flex;gap:0.35rem;flex-wrap:wrap}
+.tg{padding:0.3rem 0.75rem;border:1px solid #333;background:#181818;color:#777;border-radius:4px;cursor:pointer;font-size:0.78rem;transition:all 0.12s}
+.tg:hover{border-color:#555;color:#aaa}
+.tg.on{background:#1a3050;color:#60a0d0;border-color:#2a5080}
+.tg.on-green{background:#0d2a0d;color:#70b870;border-color:#1a4a1a}
+.tg.on-red{background:#2a0d0d;color:#c07070;border-color:#4a1a1a}
+
+/* Answer blocks */
+.ans-block{border:1px solid #252525;border-radius:6px;padding:0.75rem;margin-bottom:0.5rem;background:#131313}
+.ans-hdr{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.65rem}
+.ans-num{width:1.3rem;height:1.3rem;border-radius:50%;background:#252525;color:#777;font-size:0.7rem;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+.ans-type-sel{font-size:0.7rem;background:#181818;border:1px solid #2d2d2d;color:#888;padding:0.15rem 0.35rem;border-radius:3px;outline:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0.45rem}
+
+/* Action bar */
+.act-bar{border-top:1px solid #2a2a2a;padding:0.65rem 1.5rem;display:flex;gap:0.45rem;align-items:center;background:#0d0d0d;flex-shrink:0;flex-wrap:wrap}
+.save-st{font-size:0.75rem;margin-left:auto}
+.st-ok{color:#4caf50}
+.st-err{color:#ef5350}
+.st-wait{color:#888}
+
+/* Buttons */
+.btn{padding:0.35rem 0.8rem;border:none;border-radius:4px;cursor:pointer;font-size:0.78rem;font-weight:500;transition:opacity 0.12s}
+.btn:hover{opacity:0.82}
+.btn-blue{background:#1d4ed8;color:#fff}
+.btn-green{background:#166534;color:#fff}
+.btn-red{background:#991b1b;color:#fff}
+.btn-gray{background:#272727;color:#aaa;border:1px solid #383838}
+.btn-sm{padding:0.25rem 0.55rem;font-size:0.7rem}
+
+/* Photo preview */
+.img-prev{width:100%;max-height:180px;object-fit:contain;border-radius:5px;background:#181818;display:block;margin-top:0.45rem}
+.img-miss{height:60px;display:flex;align-items:center;justify-content:center;background:#181818;border-radius:5px;color:#333;font-size:0.75rem;margin-top:0.45rem}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:2px}
+</style>
 </head>
 <body>
-  <div class="container">
-    <p class="chapter">Admin</p>
-    <h1 class="question" style="font-size:1.4rem;">Upload fajlova</h1>
 
-    <% if (message) { %><div class="msg"><%= message %></div><% } %>
-
-    <h2 style="font-size:1rem; margin-bottom:0.5rem;">🎵 Muzika (Playground – Bea Miller)</h2>
-    <div class="audio-section <%= audioExists ? 'ok' : '' %>">
-      <% if (audioExists) { %>
-        <p style="color:#2e7d32; font-size:0.85rem;">✓ playground.mp3 je uploadovan</p>
-        <audio controls src="/audio/playground.mp3" style="width:100%; margin-top:0.5rem;"></audio>
-        <form method="POST" action="/admin/upload-audio" enctype="multipart/form-data" style="margin-top:0.75rem;">
-          <input type="file" name="audio" accept="audio/*" required>
-          <button type="submit">Zamijeni</button>
-        </form>
-      <% } else { %>
-        <p style="color:#999; font-size:0.85rem;">Nema fajla. Uploaduj playground.mp3:</p>
-        <form method="POST" action="/admin/upload-audio" enctype="multipart/form-data" style="margin-top:0.5rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-          <input type="file" name="audio" accept="audio/*" required>
-          <button type="submit">Upload</button>
-        </form>
-      <% } %>
-    </div>
-
-    <h2 style="font-size:1rem; margin-bottom:0.5rem;">📸 Slike (1–10)</h2>
-    <div class="admin-grid">
-      <% slots.forEach(slot => { %>
-        <div class="slot <%= slot.exists ? 'filled' : '' %>">
-          <div class="slot-label">Slika <%= slot.n %></div>
-          <% if (slot.exists) { %>
-            <img src="/photos/<%= slot.file %>?t=<%= Date.now() %>" alt="foto <%= slot.n %>">
-          <% } else { %>
-            <div style="height:90px; display:flex; align-items:center; justify-content:center; color:#bbb; font-size:0.75rem;">nema</div>
-          <% } %>
-          <form method="POST" action="/admin/upload-photo" enctype="multipart/form-data" class="upload-form">
-            <input type="hidden" name="slot" value="<%= slot.n %>">
-            <input type="file" name="photo" accept="image/*" required>
-            <button type="submit"><%= slot.exists ? 'Zamijeni' : 'Upload' %></button>
-          </form>
-        </div>
-      <% }) %>
-    </div>
+<header>
+  <h1>⚙ Admin</h1>
+  <span class="hdr-sep">|</span>
+  <audio id="audio" src="/audio/playground.mp3" loop></audio>
+  <button class="btn btn-gray btn-sm" id="music-btn" onclick="toggleMusic()">▶ Muzika</button>
+  <div class="hdr-right">
+    <a href="/admin/upload" class="btn btn-gray btn-sm">📸 Upload</a>
+    <a href="/preview" target="_blank" class="btn btn-gray btn-sm">Preview sve ↗</a>
   </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-hdr" id="seq-info">Kartice</div>
+    <div class="card-list" id="card-list"></div>
+  </aside>
+  <div class="editor" id="editor">
+    <div class="editor-empty">← odaberi karticu</div>
+  </div>
+</div>
+
+<script>
+let cards = <%- JSON.stringify(cards) %>;
+let sel = null;
+
+// ── Sequence ────────────────────────────────────────────────────────────
+function seqInfo() {
+  const map = Object.fromEntries(cards.map(c => [c.id, c]));
+  const seq = [], seen = new Set();
+  let cur = map['1'];
+  while (cur && !seen.has(cur.id)) {
+    seen.add(cur.id);
+    seq.push(cur);
+    if (!cur.nextCardId) break;
+    cur = map[cur.nextCardId];
+  }
+  return { seq, inactive: cards.filter(c => !seen.has(c.id)), seen };
+}
+
+// ── Sidebar ─────────────────────────────────────────────────────────────
+function renderList() {
+  const { seq, inactive } = seqInfo();
+  document.getElementById('seq-info').textContent = `Aktivno: ${seq.length} | Sve: ${cards.length}`;
+  let h = '';
+  seq.forEach((c, i) => { h += cardHTML(c, false, i + 1); });
+  if (inactive.length) {
+    h += `<div class="seq-div">Neaktivne (${inactive.length})</div>`;
+    inactive.forEach(c => { h += cardHTML(c, true, '–'); });
+  }
+  const el = document.getElementById('card-list');
+  el.innerHTML = h;
+  el.querySelectorAll('.card-item').forEach(el => {
+    el.addEventListener('click', () => select(el.dataset.id));
+  });
+}
+
+function cardHTML(c, inactive, pos) {
+  const isPhoto = c.type === 'photo';
+  const preview = isPhoto
+    ? `📸 ${c.image || '?'}`
+    : (c.question || '(bez pitanja)').slice(0, 55);
+  return `<div class="card-item${sel === c.id ? ' sel' : ''}${inactive ? ' inactive' : ''}" data-id="${c.id}">
+    <div class="ci-icon">${isPhoto ? '📸' : '📝'}</div>
+    <div class="ci-body">
+      <div class="ci-id">${pos}. ${c.id}</div>
+      <div class="ci-text">${esc(preview)}</div>
+      <div class="ci-tags">
+        ${isPhoto ? '<span class="tag tag-photo">FOTO</span>' : '<span class="tag tag-q">Q</span>'}
+        ${c.tbc ? '<span class="tag tag-tbc">TBC</span>' : ''}
+        ${inactive ? '<span class="tag tag-off">neakt.</span>' : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── Editor ───────────────────────────────────────────────────────────────
+function renderEditor() {
+  const el = document.getElementById('editor');
+  const card = cards.find(c => c.id === sel);
+  if (!card) { el.innerHTML = '<div class="editor-empty">← odaberi karticu</div>'; return; }
+
+  const nextOpts = ['<option value="">– bez sljedeće –</option>',
+    ...cards.filter(c => c.id !== card.id).map(c =>
+      `<option value="${c.id}"${card.nextCardId === c.id ? ' selected' : ''}>${c.id}${c.type==='photo'?' 📸':' 📝'} ${c.type==='photo'?(c.image||''):(c.question||'').slice(0,25)}</option>`)
+  ].join('');
+
+  let body = '';
+  if (card.type === 'photo') {
+    body = `
+      <div class="fr"><label class="fl">Slika (npr. 1.jpg)</label>
+        <input type="text" id="f-img" value="${esc(card.image||'')}">
+        <img class="img-prev" id="img-prev" src="/photos/${esc(card.image||'')}?t=${Date.now()}" onerror="this.style.display='none';document.getElementById('img-miss').style.display='flex'">
+        <div class="img-miss" id="img-miss" style="display:none">nema slike — <a href="/admin/upload" style="color:#5ba3c9;margin-left:4px">uploaduj</a></div>
+      </div>
+      <div class="fr"><label class="fl">Zadnja kartica (to be continued)</label>
+        <div class="tg-group">
+          <button class="tg${card.tbc?' on-red':''}" id="tbc-btn" onclick="toggleTbc()">${card.tbc ? '✓ Da, TBC' : 'Ne'}</button>
+        </div>
+      </div>`;
+  } else {
+    const co = card.choiceOrder || [];
+    const types = ['emotional','flirty','funny'];
+    let ansBlocks = '';
+    for (let i = 0; i < co.length; i++) {
+      const type = co[i];
+      const r = (card.responses||{})[type] || {};
+      const typeOpts = types.map(t => `<option value="${t}"${t===type?' selected':''}>${t}</option>`).join('');
+      ansBlocks += `<div class="ans-block" id="ab${i}">
+        <div class="ans-hdr">
+          <div class="ans-num">${i+1}</div>
+          <select class="ans-type-sel" id="tp${i}">${typeOpts}</select>
+          ${co.length>1?`<button class="btn btn-red btn-sm" onclick="removeAns(${i})" style="margin-left:auto">✕</button>`:''}
+        </div>
+        <div class="grid2">
+          <div class="fr" style="margin:0"><label class="fl">Label (odgovor)</label><input type="text" id="lb${i}" value="${esc(r.label||'')}"></div>
+          <div class="fr" style="margin:0"><label class="fl">Reakcija</label><input type="text" id="rx${i}" value="${esc(r.reaction||'')}"></div>
+        </div>
+        <div class="fr" style="margin-top:0.45rem;margin-bottom:0"><label class="fl">Tekst</label><textarea id="tx${i}">${esc(r.text||'')}</textarea></div>
+      </div>`;
+    }
+    body = `
+      <div class="fr"><label class="fl">Intro</label><input type="text" id="f-intro" value="${esc(card.intro||'')}"></div>
+      <div class="fr"><label class="fl">Pitanje</label><textarea id="f-q">${esc(card.question||'')}</textarea></div>
+      <div class="fr"><label class="fl">Broj odgovora</label>
+        <div class="tg-group">
+          ${[1,2,3].map(x=>`<button class="tg${co.length===x?' on':''}" onclick="setCount(${x})">${x}</button>`).join('')}
+        </div>
+      </div>
+      <div id="ans-wrap">${ansBlocks}</div>`;
+  }
+
+  const qTok = card.qToken || '';
+  el.innerHTML = `
+    <div class="editor-scroll">
+      <div class="ed-title">${card.type==='photo'?'📸':'📝'} <code>${card.id}</code></div>
+      <div class="fr"><label class="fl">Tip</label>
+        <div class="tg-group">
+          <button class="tg${card.type!=='photo'?' on':''}" onclick="setType('question')">📝 Pitanje</button>
+          <button class="tg${card.type==='photo'?' on-green':''}" onclick="setType('photo')">📸 Foto</button>
+        </div>
+      </div>
+      <div class="fr"><label class="fl">Poglavlje</label><input type="text" id="f-ch" value="${esc(card.chapter||'')}"></div>
+      ${body}
+      <div class="fr" style="margin-top:0.75rem"><label class="fl">Sljedeća kartica</label>
+        <select id="f-next">${nextOpts}</select>
+      </div>
+    </div>
+    <div class="act-bar">
+      <button class="btn btn-gray" onclick="addAfter('question')">+ Pitanje</button>
+      <button class="btn btn-gray" onclick="addAfter('photo')">+ Foto</button>
+      <button class="btn btn-red" onclick="delCard()">Obriši</button>
+      ${qTok?`<a href="/q/${qTok}" target="_blank" class="btn btn-gray">Preview ↗</a>`:''}
+      <span class="save-st" id="st"></span>
+      <button class="btn btn-blue" onclick="save()" style="margin-left:auto">Sačuvaj</button>
+    </div>`;
+}
+
+// ── Interactions ─────────────────────────────────────────────────────────
+function select(id) { sel = id; renderList(); renderEditor(); }
+
+function setType(type) {
+  const c = cards.find(c => c.id === sel);
+  if (!c) return;
+  c.type = type;
+  if (type === 'photo' && !c.image) c.image = '1.jpg';
+  if (type === 'question' && !c.choiceOrder) {
+    c.choiceOrder = ['emotional','flirty','funny'];
+    c.responses = { emotional:{label:'',reaction:'',text:''}, flirty:{label:'',reaction:'',text:''}, funny:{label:'',reaction:'',text:''} };
+  }
+  renderEditor();
+}
+
+function toggleTbc() {
+  const c = cards.find(c => c.id === sel);
+  if (!c) return;
+  c.tbc = !c.tbc;
+  if (c.tbc) c.nextCardId = null;
+  renderEditor(); renderList();
+}
+
+function setCount(n) {
+  const fc = formCard();
+  const types = ['emotional','flirty','funny'];
+  const cur = fc.choiceOrder;
+  const next = Array.from({length: n}, (_, i) => cur[i] || types.find(t => !cur.slice(0,i).includes(t)) || types[i]);
+  fc.choiceOrder = next;
+  const c = cards.find(c => c.id === sel);
+  if (c) { c.choiceOrder = next; c.responses = fc.responses; }
+  renderEditor();
+}
+
+function removeAns(idx) {
+  const fc = formCard();
+  if (fc.choiceOrder.length <= 1) return;
+  fc.choiceOrder.splice(idx, 1);
+  const c = cards.find(c => c.id === sel);
+  if (c) { c.choiceOrder = fc.choiceOrder; c.responses = fc.responses; }
+  renderEditor();
+}
+
+// ── Read form ─────────────────────────────────────────────────────────────
+function formCard() {
+  const c = JSON.parse(JSON.stringify(cards.find(c => c.id === sel)));
+  c.chapter = val('f-ch') ?? c.chapter;
+  c.nextCardId = val('f-next') || null;
+  if (c.type === 'photo') {
+    c.image = val('f-img') ?? c.image;
+  } else {
+    c.intro = val('f-intro') ?? c.intro;
+    c.question = val('f-q') ?? c.question;
+    const n = c.choiceOrder?.length || 0;
+    const newCO = [], newR = {};
+    for (let i = 0; i < n; i++) {
+      const t = val(`tp${i}`) || c.choiceOrder[i];
+      newCO.push(t);
+      newR[t] = { label: val(`lb${i}`) || '', reaction: val(`rx${i}`) || '', text: val(`tx${i}`) || '' };
+    }
+    c.choiceOrder = newCO;
+    c.responses = newR;
+  }
+  return c;
+}
+
+function val(id) {
+  const el = document.getElementById(id);
+  return el ? el.value : undefined;
+}
+
+// ── Save ──────────────────────────────────────────────────────────────────
+async function save() {
+  const card = formCard();
+  if (card.tbc) card.nextCardId = null;
+
+  const idx = cards.findIndex(c => c.id === sel);
+  if (idx !== -1) cards[idx] = { ...cards[idx], ...card };
+
+  setSt('Čuvam...', '');
+  try {
+    const res = await fetch(`/admin/api/card/${sel}`, {
+      method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(card),
+    });
+    const d = await res.json();
+    if (d.ok) {
+      if (idx !== -1) cards[idx] = d.card;
+      setSt('✓ Sačuvano', 'st-ok');
+      renderList();
+    } else setSt('✕ Greška', 'st-err');
+  } catch { setSt('✕ Greška', 'st-err'); }
+}
+
+function setSt(txt, cls) {
+  const el = document.getElementById('st');
+  if (el) { el.textContent = txt; el.className = 'save-st ' + cls; }
+}
+
+// ── Add / Delete ──────────────────────────────────────────────────────────
+async function addAfter(type) {
+  const cur = cards.find(c => c.id === sel);
+  if (!cur) return;
+  const id = (type === 'photo' ? 'p' : 'q') + Date.now().toString(36);
+  const newCard = type === 'photo'
+    ? { id, type:'photo', chapter: cur.chapter||'', image:'1.jpg', nextCardId: cur.nextCardId, tbc: false }
+    : { id, type:'question', chapter: cur.chapter||'', intro:'', question:'',
+        choiceOrder:['emotional','flirty','funny'],
+        responses:{ emotional:{label:'',reaction:'',text:''}, flirty:{label:'',reaction:'',text:''}, funny:{label:'',reaction:'',text:''} },
+        nextCardId: cur.nextCardId };
+  cur.nextCardId = id;
+  cards.push(newCard);
+  try {
+    await Promise.all([
+      fetch(`/admin/api/card/${cur.id}`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(cur) }),
+      fetch('/admin/api/card', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(newCard) }),
+    ]);
+    select(id);
+  } catch { alert('Greška pri dodavanju'); }
+}
+
+async function delCard() {
+  if (!confirm(`Obrisati karticu "${sel}"?`)) return;
+  const pred = cards.find(c => c.nextCardId === sel);
+  const cur = cards.find(c => c.id === sel);
+  if (pred) pred.nextCardId = cur?.nextCardId || null;
+  const delId = sel;
+  const delIdx = cards.findIndex(c => c.id === sel);
+  sel = pred?.id || cards.find(c => c.id !== sel)?.id || null;
+  if (delIdx !== -1) cards.splice(delIdx, 1);
+  try {
+    const reqs = [fetch(`/admin/api/card/${delId}`, { method:'DELETE' })];
+    if (pred) reqs.push(fetch(`/admin/api/card/${pred.id}`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(pred) }));
+    await Promise.all(reqs);
+    renderList(); renderEditor();
+  } catch { alert('Greška pri brisanju'); }
+}
+
+// ── Music ────────────────────────────────────────────────────────────────
+function toggleMusic() {
+  const a = document.getElementById('audio'), btn = document.getElementById('music-btn');
+  if (a.paused) a.play().then(()=>btn.textContent='⏸ Stop').catch(()=>btn.textContent='✕ Nema fajla');
+  else { a.pause(); btn.textContent='▶ Muzika'; }
+}
+
+// ── Utils ─────────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Keyboard shortcut (Ctrl+S / Cmd+S) ───────────────────────────────────
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); }
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────
+renderList();
+const { seq } = seqInfo();
+if (seq.length) select(seq[0].id);
+</script>
 </body>
 </html>

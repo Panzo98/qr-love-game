@@ -9,8 +9,9 @@ const tokens = require("./tokens");
 async function composeAnswersPrint(card, baseUrl) {
   const W = 640, H = 300, QR = 160, QR_Y = 40, LABEL_Y = 215;
 
+  const n = (card.choiceOrder || []).length || 3;
   const qrBuffers = await Promise.all(
-    [0, 1, 2].map((slot) => {
+    Array.from({ length: n }, (_, slot) => {
       const tok = tokens.answerToken(card.id, slot);
       return generateQR(`${baseUrl}/a/${tok}`);
     })
@@ -22,14 +23,18 @@ async function composeAnswersPrint(card, baseUrl) {
     )
   );
 
-  const spacing = (W - 3 * QR) / 4;
-  const positions = [0, 1, 2].map((i) => Math.round(spacing + i * (QR + spacing)));
+  const spacing = (W - n * QR) / (n + 1);
+  const positions = Array.from({ length: n }, (_, i) =>
+    Math.round(spacing + i * (QR + spacing))
+  );
+
+  const labels = positions
+    .map((x, i) => `<text x="${x + QR / 2}" y="${LABEL_Y}" text-anchor="middle" class="l">${i + 1}</text>`)
+    .join("");
 
   const svg = `<svg width="${W}" height="${H}">
     <style>.l { font: bold 24px sans-serif; fill: #000; }</style>
-    <text x="${positions[0] + QR / 2}" y="${LABEL_Y}" text-anchor="middle" class="l">1</text>
-    <text x="${positions[1] + QR / 2}" y="${LABEL_Y}" text-anchor="middle" class="l">2</text>
-    <text x="${positions[2] + QR / 2}" y="${LABEL_Y}" text-anchor="middle" class="l">3</text>
+    ${labels}
   </svg>`;
 
   return sharp({
