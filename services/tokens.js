@@ -21,11 +21,13 @@ function init() {
     tokenMap.set(qTok, { type: "question", cardId: card.id });
     questionTokens.set(card.id, qTok);
 
-    // Answer tokens (one per slot)
-    for (let slot = 0; slot < 3; slot++) {
-      const aTok = makeToken();
-      tokenMap.set(aTok, { type: "answer", cardId: card.id, slot });
-      answerTokens.set(`${card.id}:${slot}`, aTok);
+    // Answer tokens (one per slot) — skip for photo cards
+    if (card.type !== "photo") {
+      for (let slot = 0; slot < 3; slot++) {
+        const aTok = makeToken();
+        tokenMap.set(aTok, { type: "answer", cardId: card.id, slot });
+        answerTokens.set(`${card.id}:${slot}`, aTok);
+      }
     }
 
     // Print token

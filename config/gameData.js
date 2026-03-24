@@ -7,48 +7,48 @@ const cards = [
     choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Sigurnost",
-        reaction: "To je i moj odgovor.",
-        text: "Ne treba nam milion rijeci. Kad znas da mozes reci nesto glupo a niko se ne naljuti - to je to. To smo mi."
+        label: "Seks dok ne pocrkamo",
+        reaction: "Znao sam da je do njega!!!!",
+        text: "I ne kaze se seks nego vodjenje ljubavi! Samo sto smo mi umjetnici izgleda xD"
       },
       flirty: {
-        label: "Elektricnost",
-        reaction: "Ne mogu ni ja da te ne gledam XD",
-        text: "Ima tu neke hemije koju ne znam objasniti. Niti hocu. Funkcionise i to je dovoljno."
+        label: "Ego kotlic",
+        reaction: "Aman obaraj malo taj ego, ja sam svoj sravnio xD",
+        text: "Udarilo trnovo na glogovo, svako zapne za nesto svoje i sve vrijedno ispasta, ovo nije pravi odgovor!!."
       },
       funny: {
-        label: "Haos - u dobrom smislu",
+        label: "Dvoje ludjaka koji se mnogo vole",
         reaction: "XD Najiskreniiji odgovor.",
-        text: "Ko bi rekao da dva haosa mogu napraviti nesto ovako slatko. Matematika ne valja ali mi funkcionisemo."
+        text: "Prvo smo pricali na speedu, onda nismo znali nista izgovoriti da se ne posvadjamo, al brt ljubav iznad svega tkd sve cemo rijesiti"
       }
     },
     nextCardId: "2"
   },
-  {
-    id: "2",
-    chapter: "Poglavlje 1",
-    intro: "Budi iskrena, niko te ne gleda...",
-    question: "Sta ti je kod mene prvo privuklo paznju?",
-    choiceOrder: ["flirty", "emotional", "funny"],
-    responses: {
-      emotional: {
-        label: "Nacin na koji pricas o stvarima koje volim",
-        reaction: "Uvijek sam slusao, samo nisi znala.",
-        text: "Nije bilo tesko. Kad neko prica o necemu sto voli - sve bude drugacije. I ti si bila drugacija."
-      },
-      flirty: {
-        label: "Pogled. Nisi mogao sakriti.",
-        reaction: "Busted. Ali nisam ni pokusavao XD",
-        text: "Sta cu ti reci... postoje stvari koje covek ne moze kontrolisati. Gledanje u tebe je jedna od njih."
-      },
-      funny: {
-        label: "Bio si cudno simpatican, al si bio XD",
-        reaction: "Cudno simpatican - i dan danas!",
-        text: "Hej, 'cudno simpatican' je moja strategija i ocito radi. Evo nas. Ez clap."
-      }
+ {
+  id: "2",
+  chapter: "Poglavlje 1",
+  intro: "ne lazi sad",
+  question: "je l te malo radilo kad sam ti rekao 'samo da znas, sad sam te indirektno poljubio'",
+  choiceOrder: ["flirty", "funny", "emotional"],
+  responses: {
+    flirty: {
+      label: "iskr ne",
+      reaction: "postujem",
+      text: "svakako sam ja tad vec uveliko letio da se to sve desi xDD"
     },
-    nextCardId: "3"
+    funny: {
+      label: "moozda malo, al sad je kasno xd",
+      reaction: "e jebiga",
+      text: "sad si zaglavila, nema nazad"
+    },
+    emotional: {
+      label: "osjetila sam ali nisam htjela priznati",
+      reaction: "to je to",
+      text: "nekad znas ali svejedno ides dalje"
+    }
   },
+  nextCardId: "3"
+},
   {
     id: "3",
     chapter: "Poglavlje 1",
@@ -72,7 +72,7 @@ const cards = [
         text: "Plan: jedan game. Stvarnost: alarm u 7. Pouka: nema 'jednog gama' kad smo zajedno. I ne zalim."
       }
     },
-    nextCardId: "4"
+    nextCardId: "photo1"
   },
   {
     id: "4",
@@ -147,7 +147,7 @@ const cards = [
         text: "Ozbiljno taj smijeh dok si ljuta - to je kraj svake svadije kod mene. Ne mogu se drzati. Ti si jaca."
       }
     },
-    nextCardId: "7"
+    nextCardId: "photo2"
   },
   {
     id: "7",
@@ -222,7 +222,7 @@ const cards = [
         text: "Svaka epizoda: novi problem, novi game, nova kafa u 2 ujutru, nova izjava ljubavi. Publika ne bi mogla pratiti. Mi jedva."
       }
     },
-    nextCardId: "10"
+    nextCardId: "photo3"
   },
   {
     id: "10",
@@ -297,7 +297,7 @@ const cards = [
         text: "Osnovna formula srecnog zivota: dobra igra, caj, ti, kasno u noc. Dodaj cips. Savrseno."
       }
     },
-    nextCardId: "13"
+    nextCardId: "photo4"
   },
   {
     id: "13",
@@ -372,7 +372,7 @@ const cards = [
         text: "Slucaj: smislimo nesto, kazemo 'ovo je to', zaspimo, zaboravimo. Ali neka ta energija bude za nesto stvarno jednog dana."
       }
     },
-    nextCardId: "16"
+    nextCardId: "photo5"
   },
   {
     id: "16",
@@ -447,7 +447,7 @@ const cards = [
         text: "Ponekad je najluksuznija destinacija - topao krevet u srijedu popodne. Rado pratim."
       }
     },
-    nextCardId: "19"
+    nextCardId: "photo6"
   },
   {
     id: "19",
@@ -522,7 +522,7 @@ const cards = [
         text: "Dok ostali kruze 20 minuta - ja vec sjedim i cekam. To je talenat koji je potcjenjen."
       }
     },
-    nextCardId: "22"
+    nextCardId: "photo7"
   },
   {
     id: "22",
@@ -597,7 +597,7 @@ const cards = [
         text: "Soba zakljucana, puna cips, cokolade, slusalica i dobrog wi-fi. Dnevni boravak broj 2. Prihvaceno."
       }
     },
-    nextCardId: "25"
+    nextCardId: "photo8"
   },
   {
     id: "25",
@@ -672,7 +672,7 @@ const cards = [
         text: "Pogled, jedna rijec, i oboje razumijemo sta je receno a niko oko nas ne zna. To je nasa stvar. Cuvamo je."
       }
     },
-    nextCardId: "28"
+    nextCardId: "photo9"
   },
   {
     id: "28",
@@ -747,8 +747,20 @@ const cards = [
         text: "Zvanicno: zadnja kartica. Nezvanicno: ne reci nikad nikad. A do tada - vojim te, mackic 🫶🏻"
       }
     },
-    nextCardId: null
-  }
+    nextCardId: "photo10"
+  },
+  // ↓↓↓ ZADNJA KARTICA — promijeni tbc na false kad dodas vise karata ↓↓↓
+  { id: "photo1",  type: "photo", image: "1.jpg",  nextCardId: null, tbc: true  },
+  // ↑↑↑ ————————————————————————————————————————————————————————————— ↑↑↑
+  { id: "photo2",  type: "photo", image: "2.jpg",  nextCardId: "7"  },
+  { id: "photo3",  type: "photo", image: "3.jpg",  nextCardId: "10" },
+  { id: "photo4",  type: "photo", image: "4.jpg",  nextCardId: "13" },
+  { id: "photo5",  type: "photo", image: "5.jpg",  nextCardId: "16" },
+  { id: "photo6",  type: "photo", image: "6.jpg",  nextCardId: "19" },
+  { id: "photo7",  type: "photo", image: "7.jpg",  nextCardId: "22" },
+  { id: "photo8",  type: "photo", image: "8.jpg",  nextCardId: "25" },
+  { id: "photo9",  type: "photo", image: "9.jpg",  nextCardId: "28" },
+  { id: "photo10", type: "photo", image: "10.jpg", nextCardId: null, tbc: true }
 ];
 
 function getCard(id) {

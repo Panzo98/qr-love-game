@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>...</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%; height: 100%;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .photo-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-img {
+      max-width: 100%;
+      max-height: 100vh;
+      object-fit: contain;
+      display: block;
+    }
+    .tbc {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-size: clamp(1rem, 4vw, 2rem);
+      letter-spacing: 0.2em;
+      text-transform: lowercase;
+      opacity: 0;
+      animation: fadeIn 2s ease 1s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .next-section {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    .next-section p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+    .btn-photo {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+    .btn-photo:hover { background: rgba(255,255,255,0.25); }
+    .audio-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="photo-wrap">
+    <img class="photo-img" src="/photos/<%= card.image %>" alt="">
+
+    <% if (card.tbc) { %>
+      <div class="tbc">to be continued...</div>
+    <% } else if (nextQrPrintUrl) { %>
+      <div class="next-section">
+        <p>Preuzmi QR kod za sljedecu stranicu, isprintaj ga i zalijepi u svesku.</p>
+        <a href="<%= nextQrPrintUrl %>" class="btn-photo" download="sljedece-pitanje.png">Preuzmi QR kod</a>
+      </div>
+    <% } %>
+  </div>
+
+  <audio id="bg-audio" loop>
+    <source src="/audio/playground.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="audio-btn" id="audio-toggle" title="play/pause">▶</button>
+
+  <script>
+    const audio = document.getElementById('bg-audio');
+    const btn = document.getElementById('audio-toggle');
+
+    audio.volume = 0.6;
+
+    // Try autoplay; if blocked, user taps button
+    audio.play().then(() => { btn.textContent = '⏸'; }).catch(() => {});
+
+    btn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = '⏸';
+      } else {
+        audio.pause();
+        btn.textContent = '▶';
+      }
+    });
+  </script>
+</body>
+</html>

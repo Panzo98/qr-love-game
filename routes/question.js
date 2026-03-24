@@ -14,6 +14,13 @@ router.get("/:token", (req, res) => {
     return res.status(404).send("Kartica nije pronađena.");
   }
 
+  if (card.type === "photo") {
+    const nextQrPrintUrl = card.nextCardId
+      ? `/p/next/${tokens.printToken(card.nextCardId)}`
+      : null;
+    return res.render("photo", { card, nextQrPrintUrl });
+  }
+
   const choices = card.choiceOrder.map((type, slot) => ({
     token: tokens.answerToken(card.id, slot),
     label: card.responses[type].label,
