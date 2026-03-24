@@ -2,24 +2,24 @@ const cards = [
   {
     id: "1",
     chapter: "Poglavlje 1",
-    intro: "Dobrodošla u igru! Ovo je tvoja prva kartica. Svaki odgovor otkriva nešto novo...",
-    question: "Kako bi voljela da počnemo ovu avanturu?",
+    intro: "Dobro dosla. Ovo nije obican kviz - ima pitanja, izjava, provala i mozda nesto zbog cega ces se crvenjeti. Krecemo.",
+    question: "Ako bi opisala nas dvoje u jednoj rijeci, koja bi bila?",
     choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Nježno, korak po korak",
-        reaction: "Baš kao ti - pažljivo i s puno srca.",
-        text: "Svaki veliki put počinje malim korakom. A ovaj put je poseban jer ga prolazimo zajedno. Okreni stranicu i zalijepi sljedeće QR naljepnice."
+        label: "Sigurnost",
+        reaction: "To je i moj odgovor.",
+        text: "Ne treba nam milion rijeci. Kad znas da mozes reci nesto glupo a niko se ne naljuti - to je to. To smo mi."
       },
       flirty: {
-        label: "S malo iskre u očima",
-        reaction: "Vidim da voliš igru... i ja isto.",
-        text: "Ova iskra će nas voditi kroz stranice. Svaki QR kod krije nešto samo za tebe. Nastavi - obećavam da se isplati."
+        label: "Elektricnost",
+        reaction: "Ne mogu ni ja da te ne gledam XD",
+        text: "Ima tu neke hemije koju ne znam objasniti. Niti hocu. Funkcionise i to je dovoljno."
       },
       funny: {
-        label: "Bez plana, yolo!",
-        reaction: "Haha, ok! Onda se drži čvrsto!",
-        text: "Plan je precijenjen. Spontanost je ono što nas čini posebnima. Ajmo vidjeti kuda nas ovo vodi!"
+        label: "Haos - u dobrom smislu",
+        reaction: "XD Najiskreniiji odgovor.",
+        text: "Ko bi rekao da dva haosa mogu napraviti nesto ovako slatko. Matematika ne valja ali mi funkcionisemo."
       }
     },
     nextCardId: "2"
@@ -27,24 +27,24 @@ const cards = [
   {
     id: "2",
     chapter: "Poglavlje 1",
-    intro: "Sjećaš li se kako smo se upoznali? Ponekad mislim o tome...",
-    question: "Šta ti je prvi put privuklo pažnju kod mene?",
+    intro: "Budi iskrena, niko te ne gleda...",
+    question: "Sta ti je kod mene prvo privuklo paznju?",
     choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Tvoj osmijeh",
-        reaction: "To mi znači više nego što misliš.",
-        text: "Osmijeh je ono što prvo vidimo, ali ono što ostaje je osjećaj koji donosi. Hvala ti što si to primijetila."
+        label: "Nacin na koji pricas o stvarima koje volim",
+        reaction: "Uvijek sam slusao, samo nisi znala.",
+        text: "Nije bilo tesko. Kad neko prica o necemu sto voli - sve bude drugacije. I ti si bila drugacija."
       },
       flirty: {
-        label: "Tvoj pogled - nisi mogao sakriti",
-        reaction: "Busted! Da, nisam mogao odvojiti oči.",
-        text: "Što da ti kažem... Postoje stvari koje se ne mogu sakriti. A pogled prema tebi je jedna od njih."
+        label: "Pogled. Nisi mogao sakriti.",
+        reaction: "Busted. Ali nisam ni pokusavao XD",
+        text: "Sta cu ti reci... postoje stvari koje covek ne moze kontrolisati. Gledanje u tebe je jedna od njih."
       },
       funny: {
-        label: "Bio si čudno simpatičan",
-        reaction: "Čudno simpatičan? To ću uzeti kao kompliment!",
-        text: "Hej, 'čudno simpatičan' je moja najbolja osobina. Barem je funkcionisalo, jel da?"
+        label: "Bio si cudno simpatican, al si bio XD",
+        reaction: "Cudno simpatican - i dan danas!",
+        text: "Hej, 'cudno simpatican' je moja strategija i ocito radi. Evo nas. Ez clap."
       }
     },
     nextCardId: "3"
@@ -52,49 +52,49 @@ const cards = [
   {
     id: "3",
     chapter: "Poglavlje 1",
-    intro: "Svaki par ima svoj poseban momenat...",
-    question: "Koji naš zajednički trenutak ti je najdraži?",
-    choiceOrder: ["funny", "flirty", "emotional"],
+    intro: "Pricu znas, ali pitam te svejedno...",
+    question: "Koji nas zajednicki gaming momenat ti je najdrazi?",
+    choiceOrder: ["funny", "emotional", "flirty"],
     responses: {
       emotional: {
-        label: "Onaj tihi trenutak kad smo samo bili zajedno",
-        reaction: "Tišina s tobom govori glasnije od bilo čega.",
-        text: "Najljepši trenuci nisu uvijek najglasniji. Ponekad je dovoljno samo biti tu, jedno pored drugog, i znati da si na pravom mjestu."
+        label: "Kad smo sjedili zajedno i slusali muziku u Avataru bez da smo nista pricali",
+        reaction: "I ja tu scenu vracam cesto.",
+        text: "Ima nesto u tome kad dvoje ljudi moze biti zajedno bez da ista mora biti receno. To je jedan od mojih omiljenih nasih trenutaka."
       },
       flirty: {
-        label: "Kad si me prvi put poljubio/la",
-        reaction: "Taj trenutak se ponavlja u mojoj glavi kao omiljena pjesma.",
-        text: "Neki poljupci promijene sve. Naš prvi je bio upravo takav. I svaki sljedeći je bio jednako poseban."
+        label: "Sve sto smo radili kad su ostali zaspali",
+        reaction: "Hm. Znam tacno na sta mislis XD",
+        text: "Kasne noci, discord, game, smijeh - i na kraju uvijek ostanemo samo ti i ja. I to mi je omiljeni dio."
       },
       funny: {
-        label: "Kad smo se zajedno izgubili",
-        reaction: "Haha! Avantura za pamćenje!",
-        text: "Izgubiti se s pravom osobom je bolje nego znati put bez nje. Plus, najbolje priče počinju s 'e, onda smo skrenuli pogrešno'..."
+        label: "Kad kazes 'jedno jos' a igramo do 4 ujutru XD",
+        reaction: "Klasika. Uvijek.",
+        text: "Plan: jedan game. Stvarnost: alarm u 7. Pouka: nema 'jednog gama' kad smo zajedno. I ne zalim."
       }
     },
     nextCardId: "4"
   },
   {
     id: "4",
-    chapter: "Poglavlje 2",
-    intro: "Hajmo zaroniti malo dublje...",
-    question: "Šta te kod mene nasmije čak i kad ti nije do smijeha?",
+    chapter: "Poglavlje 1",
+    intro: "Ovo moram pitati. Mora se.",
+    question: "Dakle. 'Vojim te.' Slucajno ili namjerno?",
     choiceOrder: ["emotional", "funny", "flirty"],
     responses: {
       emotional: {
-        label: "Način na koji pokušavaš da me razveseliš",
-        reaction: "Tvoja sreća mi je najvažnija.",
-        text: "Kad vidim da ti nije lako, sve bih dao da te nasmijem. Drago mi je da to primjećuješ i cijeniš."
+        label: "Slucajno, ali sad mi je draze od pravog XD",
+        reaction: "Isto meni, iskreno.",
+        text: "Volis me - vojis me - u svakom obliku i svakom slucajnom slovu. I ne zelim to mijenjati."
       },
       flirty: {
-        label: "Tvoj smješni izraz lica kad nešto zezneš",
-        reaction: "Hej! Ali da, znam o čemu pričaš...",
-        text: "Priznajem, imam talent za smiješne izraze lica. Barem te to zabavlja - win-win situacija!"
+        label: "Mozda namjerno da vidim hoces li primijetiti",
+        reaction: "Primijetio sam. I otopilo me.",
+        text: "Ta jedna typo je rekla vise od sto ispravnih poruka. Vojim te isto, mackic."
       },
       funny: {
-        label: "Tvoji očajni vicevi",
-        reaction: "OČAJNI?! To su vrhunski vicevi!",
-        text: "Ok, možda jesu malo cringe, ali upravo zato funkcionišu! Loš vic + tvoj smijeh = savršena kombinacija."
+        label: "Slucajno!! I sad ne mogu promijeniti XD",
+        reaction: "Kanonicno. Postoji vecno.",
+        text: "Sad kad god napisem 'volim' osjecam da je nesto pogresno. 'Vojim' je postalo nase. I to ne mijenjamo."
       }
     },
     nextCardId: "5"
@@ -102,24 +102,24 @@ const cards = [
   {
     id: "5",
     chapter: "Poglavlje 2",
-    intro: "Ponekad su male stvari najbitnije...",
-    question: "Koji mali gest ti najviše znači?",
+    intro: "Male stvari. Koje zapravo nisu male.",
+    question: "Sta od mojih malih gesta ti najvise znaci?",
     choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Kad me zagrliš bez razloga",
-        reaction: "Zagrljaj kaže ono što riječi ne mogu.",
-        text: "Svaki zagrljaj je mali dom. Nema razloga jer je svaki trenutak s tobom razlog sam po sebi."
+        label: "Kad vidim da si umoran/a i ne pitam nista - samo budem tu",
+        reaction: "To mi treba ponekad vise od svega.",
+        text: "Nije uvijek lako reci sta trebas. Nekad je dovoljno da neko bude tu bez pitanja i bez zahtjeva. I ti to znas."
       },
       flirty: {
-        label: "Kad mi pošalješ poruku usred dana",
-        reaction: "Jer si mi non-stop u mislima.",
-        text: "Svaka poruka je mali podsjetnik da nisam sam u ovome. A ti si razlog zašto volim pogledati telefon."
+        label: "Poruke usred radnog dana kad me najmanje ocekujes",
+        reaction: "Jer si mi stalno u glavi. Doslo il ne.",
+        text: "Ima nesto u tome - sredi dan, telefon zazvoni - i odma je bolje. To si ti."
       },
       funny: {
-        label: "Kad mi dozvoliš zadnji komad pizze",
-        reaction: "To je PRAVI znak ljubavi!",
-        text: "Zaboravi dijamante i cvijeće. Prava ljubav se mjeri u žrtvovanim komadima pizze. I ti si šampion!"
+        label: "Kad mi napravis kafu bez da te pitam i pogodis kako cu je XD",
+        reaction: "Kapucino za tebe - uvijek tacno XD",
+        text: "Ozbiljno, to je vjestacstvo. Pogoditi sta hoce neko za kafu - to ucim godinama. Za tebe mi je odmah doslo."
       }
     },
     nextCardId: "6"
@@ -127,49 +127,49 @@ const cards = [
   {
     id: "6",
     chapter: "Poglavlje 2",
-    intro: "Svaka veza ima svoj jezik...",
-    question: "Kako bi opisala naš odnos u tri riječi?",
-    choiceOrder: ["funny", "emotional", "flirty"],
+    intro: "Malo zaronimo...",
+    question: "Sta ti je najteze kada smo u svadici?",
+    choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Siguran, topao, iskren",
-        reaction: "Upravo to gradimo svaki dan.",
-        text: "Sigurnost, toplina i iskrenost - temelji svega lijepog. Hvala ti što s tobom imam sve troje."
+        label: "Kad znam da si u pravu al mi je tesko to izgovoriti",
+        reaction: "I meni je. Zato pitaj uvijek direktno.",
+        text: "Nije lako. Ali ono sto nam se desava kad to konacno kazemo - vrijedi. Uvijek."
       },
       flirty: {
-        label: "Vatren, neizvjestan, uzbudljiv",
-        reaction: "Ooh, sviđa mi se kako razmišljaš!",
-        text: "S tobom nikad nije dosadno. Svaki dan je nova avantura i ne bih to mijenjao ni za šta na svijetu."
+        label: "Kad se svadjam a jedino hocu da me zagrlis XD",
+        reaction: "Sljedeci put reci to rece XD",
+        text: "Ima nesto suludo u tome - svadjamo se a oboje znamo kako se to zavrsava. Mozda bismo mogli preskociti sredinu."
       },
       funny: {
-        label: "Čudan, smiješan, savršen",
-        reaction: "Čudan i smiješan? Savršen opis!",
-        text: "Normalni parovi su dosadni. Mi smo nivo iznad - čudni i smiješni, a to je recept za vječnost."
+        label: "Kad mi se bude smijati a mora biti ljuta XD",
+        reaction: "XD Vidim to na licu uvijek!",
+        text: "Ozbiljno taj smijeh dok si ljuta - to je kraj svake svadije kod mene. Ne mogu se drzati. Ti si jaca."
       }
     },
     nextCardId: "7"
   },
   {
     id: "7",
-    chapter: "Poglavlje 3",
-    intro: "Vrijeme je za malo misterije...",
-    question: "Da možeš pročitati jednu moju misao, koju bi izabrala?",
+    chapter: "Poglavlje 2",
+    intro: "Budi iskrena. Nikad ne kaznjavam iskrenost.",
+    question: "Da mozes procitati jednu moju misao u ovom trenutku, koju bi odabrala?",
     choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Šta osjećaš kad me gledaš",
-        reaction: "Osjećam mir. Kao da je sve na svom mjestu.",
-        text: "Kad te gledam, svijet se uspori. Sve brige nestanu i ostaje samo osjećaj da sam tačno tamo gdje trebam biti."
+        label: "Sta osjeca kad me gleda dok ne znam da me gleda",
+        reaction: "Mir. Kao da sve sjedi na svom mjestu.",
+        text: "Ima taj momenat kad te gledam i ne primjecujes - samo si tu. I u tim momentima je sve savrseno tacno."
       },
       flirty: {
-        label: "O čemu maštaš kad smo zajedno",
-        reaction: "Hmm, to ostaje moja mala tajna... za sad.",
-        text: "Neke misli su previše lijepe za riječi. Ali obećavam ti - svaka je o tebi i o nama."
+        label: "O cemu misli kad mu kasno pisem laku noc",
+        reaction: "Uvijek ista misao XD",
+        text: "Kasne noci, laku noc poruke - i misao koja ne da mira. Nije za pisanje ali znas o cemu se radi."
       },
       funny: {
-        label: "Zašto toliko dugo biraš šta ćeš jesti",
-        reaction: "Haha! Jer je to ŽIVOTNA ODLUKA!",
-        text: "Izbor jela je ozbiljna stvar! Ali ok, priznajem da pretjerujem. Sljedeći put biram za 5 minuta. Možda."
+        label: "Da li mu je glupo sto voli sve te igrice XD",
+        reaction: "Ne, ali mu je glupo sto ih ne moze prestati igrati XD",
+        text: "Odgovor je ne. Ali hvala sto pitaš. I hvala sto igras sa mnom umjesto da se salijes."
       }
     },
     nextCardId: "8"
@@ -177,24 +177,24 @@ const cards = [
   {
     id: "8",
     chapter: "Poglavlje 3",
-    intro: "Putovanje kroz sjećanja...",
-    question: "Kad bi mogla ponovo proživjeti jedan naš dan, koji bi bio?",
+    intro: "Ajmo u masineriju uspomena...",
+    question: "Koji nas dan bi voljela jos jednom prozivjeti?",
     choiceOrder: ["flirty", "funny", "emotional"],
     responses: {
       emotional: {
-        label: "Dan kad smo rekli 'volim te'",
-        reaction: "Rekao bih ti to ponovo hiljadu puta.",
-        text: "Neki dani promijene sve. Taj dan je bio jedan od njih. I svaki dan nakon toga nosi tu istu toplinu."
+        label: "Onaj dan kad si bio bolestan a ja dosla i sjedila pored tebe",
+        reaction: "Bio sam sretniji bolestan nego zdrav bez tebe.",
+        text: "Nemam rijeci za to. Samo znam da u tom trenutku nisam brinuo ni o cemu osim da ces ostati malo duze."
       },
       flirty: {
-        label: "Naš prvi spoj",
-        reaction: "Nervoza, leptirići, i ti... savršeno.",
-        text: "Sjećam se svakog detalja. Tvoj osmijeh, nervozni smijeh, onaj prvi dodir. Vratio bih se u taj trenutak bez razmišljanja."
+        label: "Neka od kasnih noci samo nas dvoje",
+        reaction: "Ima ih vise nego sto mislis. I svaka je bila savrsena.",
+        text: "Ne moram precizirati koji. Znas. Ja znam. I oboje znamo da su to bili nasi trenuci."
       },
       funny: {
-        label: "Onaj dan kad smo napravili totalni haos",
-        reaction: "Ah da! Legendarna priča!",
-        text: "Svaki par treba barem jednu priču od koje se crvene pred prijateljima. Mi imamo kolekciju!"
+        label: "Onaj dan kad smo narudili s Temua i nisam znala sta stize XD",
+        reaction: "Klasicno! 'Naruci nesto a vidi sta stize' - nasa disciplina.",
+        text: "Temu isporuke su iskustvo za sebe. Svaki paket je misterija. Zajedno to gledamo ko djeca o Bozicu XD"
       }
     },
     nextCardId: "9"
@@ -202,49 +202,49 @@ const cards = [
   {
     id: "9",
     chapter: "Poglavlje 3",
-    intro: "Maštarija na djelu...",
-    question: "Da smo likovi iz filma, koji žanr bi bio naš?",
+    intro: "Malo kreativnosti...",
+    question: "Da smo likovi u seriji, koji zanr bi bio nas?",
     choiceOrder: ["funny", "flirty", "emotional"],
     responses: {
       emotional: {
-        label: "Romantična drama sa srećnim krajem",
-        reaction: "Naš srećni kraj tek počinje.",
-        text: "Svaka dobra priča ima svoje izazove, ali ono što nas čini posebnima je kako ih zajedno prolazimo. I kraj je uvijek srećan."
+        label: "Romantika sa dosta realnosti - bez pretjerivanja",
+        reaction: "Taman. Bez filtera, sa svim.",
+        text: "Nema savrsenih scenarija. Ima samo dvoje ljudi koji se trude. I nas scenario je i dalje moj omiljeni."
       },
       flirty: {
-        label: "Akcija sa puno hemije",
-        reaction: "Eksplozivna hemija, to stoji!",
-        text: "Između nas uvijek ima iskri. Dodaj malo avanture i imaš blockbuster koji se nikad ne završava!"
+        label: "Thriller sa puno napetosti i jos vise hemije",
+        reaction: "Ne mogu se ponositi koliko ovo stoji XD",
+        text: "Napetost, hemija, cas svadja cas ne - to bi bio hit. Netflix bi se javio do srijede."
       },
       funny: {
-        label: "Komedija zabune - 100%",
-        reaction: "Scenario piše sam sebe, haha!",
-        text: "Iskreno, naš svakodnevni život je smiješniji od većine komedija. Netflix, javi se!"
+        label: "Reality show koji niko ne bi vjerovao da je stvaran XD",
+        reaction: "Produkcija bi otkazala. Pre-nerealisticno.",
+        text: "Svaka epizoda: novi problem, novi game, nova kafa u 2 ujutru, nova izjava ljubavi. Publika ne bi mogla pratiti. Mi jedva."
       }
     },
     nextCardId: "10"
   },
   {
     id: "10",
-    chapter: "Poglavlje 4",
-    intro: "Malo ozbiljnije, ali i dalje s osmijehom...",
-    question: "Šta sam te naučio što prije nisi znala?",
+    chapter: "Poglavlje 3",
+    intro: "Malo ozbiljnije, ali i dalje nase...",
+    question: "Sta si naucila od mene sto nisi znala ranije?",
     choiceOrder: ["emotional", "funny", "flirty"],
     responses: {
       emotional: {
-        label: "Da je ok biti ranjiva",
-        reaction: "Tvoja hrabrost me svaki dan iznenadi.",
-        text: "Ranjivost nije slabost - to je najhrabrija stvar koju neko može pokazati. I ti si najhrabrija osoba koju znam."
+        label: "Da je ok traziti pomoc i ne biti uvijek jaka",
+        reaction: "I ti si mene naucila isto. Isla nam u isto vrijeme XD",
+        text: "Nije slabost pitati. Niti je slabost pustiti nekoga da pomogne. Nekad nam treba neko ko ce biti tu bez da objasnjava."
       },
       flirty: {
-        label: "Da leptirići u stomaku stvarno postoje",
-        reaction: "I meni ih ti svaki put izazoveš.",
-        text: "Mislio sam da su leptirići u stomaku mit. Onda sam te sreo i shvatio da je to blaga verzija onoga što osjećam."
+        label: "Da sam ljepsa kad sam opustena nego kad se trudim XD",
+        reaction: "Tacno. Uvijek.",
+        text: "Nema frke, nema perfekcije, nema pokazivanja - samo ti, takva kakva jesi. I to je uvijek najljepse."
       },
       funny: {
-        label: "Da neko može toliko krkljati u snu",
-        reaction: "EJ! To je... ok, istina je.",
-        text: "Hej, to je moj nocturni koncert! Ekskluzivno za jednog slušaoca. VIP karta uključena u vezu."
+        label: "Da ne treba pola sata birati sta cemo jesti XD",
+        reaction: "I dalje naucavas tu lekciju, ali hvala na trudu.",
+        text: "Napredak: sad je samo 20 minuta. Cilj: 10. Vjerujem da cemo do kraja godine biti ispod tog praga. Mozda."
       }
     },
     nextCardId: "11"
@@ -252,24 +252,24 @@ const cards = [
   {
     id: "11",
     chapter: "Poglavlje 4",
-    intro: "Emotivni checkpoint...",
-    question: "Koja naša uspomena ti zagrije srce?",
+    intro: "Emocionalni checkpoint XD",
+    question: "Koja nasa uspomena ti zagrije srce?",
     choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Kad si bio tu u mom teškom trenutku",
-        reaction: "Uvijek ću biti tu. Obećavam.",
-        text: "Najvažnije stvari se ne mjere riječima, nego prisustvom. I nikad neću prestati biti tu za tebe."
+        label: "Kad si mi rekao da mu je vazno sta mislis - i zaista to mislio",
+        reaction: "Mislio sam. I mislim.",
+        text: "Postoje rijeci koje se kazu, i postoje rijeci koje se osjete. Kad sam to rekao, znao sam da cu uvijek misliti isto."
       },
       flirty: {
-        label: "Naše kasne noćne razgovore",
-        reaction: "Oni su mi najdraži dio dana.",
-        text: "Kad se svijet utiša, ostajemo mi i naši razgovori. I svaki put otkrijem nešto novo o tebi što me još više privuče."
+        label: "Nasi kasni razgovori kad se sve utisalo i ostali samo mi",
+        reaction: "Ti i ja, kasno, bez filtera - to je moja omiljena verzija svega.",
+        text: "Kad se svijet smiri, razgovor postane drugaciji. Iskrenost dodje sama. I u tim trenucima otkrijem uvijek nesto novo o tebi."
       },
       funny: {
-        label: "Kad smo se takmičili ko je bolji kuhar",
-        reaction: "I dalje tvrdim da sam pobijedio!",
-        text: "Taj kuharski dvoboj je bio epski. Okej, možda je tvoje jelo bilo malo bolje. MALO. Ne govori nikome."
+        label: "Kad smo Peri pokazali Discord i on nije skontao nista XD",
+        reaction: "Pero je hobi koji dijelimo XD",
+        text: "Pero je na svom putu razumijevanja gaming-a. Mi smo pratnja na tom putu. I to ce trajati jos dugo."
       }
     },
     nextCardId: "12"
@@ -277,24 +277,24 @@ const cards = [
   {
     id: "12",
     chapter: "Poglavlje 4",
-    intro: "Red za malo kreativnosti...",
-    question: "Kad bi nam pisala pjesmu, kako bi se zvala?",
-    choiceOrder: ["funny", "emotional", "flirty"],
+    intro: "Malo seksi, malo iskreno. Budi iskrena.",
+    question: "Da mozes raditi sta hoces sa mnom cijelu noc - sta bi bilo?",
+    choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Tiho, ali zauvijek",
-        reaction: "Najljepši naslov koji sam čuo.",
-        text: "Tiho, ali zauvijek. Kao naša ljubav - ne viče, ne dokazuje, ali je tu. Svaki dan, svaki trenutak."
+        label: "Razgovarali do zore kao sto smo radili",
+        reaction: "Neke noci ne treba nista drugo.",
+        text: "Ima noci kad je razgovor bolje od svega drugog. Bez telefona, bez serija - samo rijeci koje ne bi rekli danju."
       },
       flirty: {
-        label: "Vatra i šapat",
-        reaction: "Poetično i tačno.",
-        text: "Između vatre i šapata - tu smo mi. Strast i nježnost u savršenom balansu. To je naša melodija."
+        label: "Nesto sto cu ti reci uzivo, ne ovdje XD",
+        reaction: "Drzi taj odgovor. I dodi.",
+        text: "Neki odgovori nisu za kartice. Sacuvaj ga. Dodji. I reci mi."
       },
       funny: {
-        label: "Opet kasnim jer sam birala outfit",
-        reaction: "HAHA! Autobiografska himna!",
-        text: "To bi bio hit! Top lista 40 tjedana. Svaka osoba u vezi bi se pronašla u toj pjesmi."
+        label: "Avatar, caj, ti i ja - nista ostalo ne treba XD",
+        reaction: "Plan prihvacen. Sutra?",
+        text: "Osnovna formula srecnog zivota: dobra igra, caj, ti, kasno u noc. Dodaj cips. Savrseno."
       }
     },
     nextCardId: "13"
@@ -302,24 +302,24 @@ const cards = [
   {
     id: "13",
     chapter: "Poglavlje 5",
-    intro: "Escape room mode: aktiviran!",
-    question: "Zaključani smo u sobi. Šta je tvoj prvi potez?",
+    intro: "Malo maste...",
+    question: "Zakljucani smo sami negdje. Sta je tvoj prvi potez?",
     choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Uhvatim te za ruku - zajedno ćemo naći izlaz",
-        reaction: "S tobom bih našao izlaz iz bilo čega.",
-        text: "Tim smo. I u escape roomu i u životu. Dok smo zajedno, svaka zagonetka ima rješenje."
+        label: "Uhvatim te za ruku i kazem sve sto nisam stigla",
+        reaction: "Imam listu cekanja za taj razgovor.",
+        text: "Ima rijeci koje cekaju pravi trenutak. Mozda je taj trenutak uvijek bio samo mi i cetiri zida."
       },
       flirty: {
-        label: "Tko kaže da želim izaći?",
-        reaction: "Hmmm, zaključani sami... ima potencijala!",
-        text: "Zašto bismo žurili s izlaskom? Ponekad je ljepše ostati zaključan s pravom osobom nego biti slobodan bez nje."
+        label: "Ko kaze da zelim izaci? XD",
+        reaction: "Moj tip razmisljanja tacno.",
+        text: "Zasto bi zeljela izaci? Zatvorenost sa pravom osobom je bolja od slobode bez nje."
       },
       funny: {
-        label: "Provjeravam ima li WiFi",
-        reaction: "Prioriteti na mjestu! Haha!",
-        text: "Prvo WiFi, pa onda spašavanje. Trebamo googolati 'kako izaći iz escape rooma'. Ili naručiti dostavu dok čekamo."
+        label: "Gledam ima li wifi i narudzba za hranu XD",
+        reaction: "Prioriteti na broju jedan!",
+        text: "Nema razloga za paniku ako ima wifi i nesto za jesti. Ostalo cemo smisliti."
       }
     },
     nextCardId: "14"
@@ -327,24 +327,24 @@ const cards = [
   {
     id: "14",
     chapter: "Poglavlje 5",
-    intro: "Nastavak escape room izazova...",
-    question: "Pronašli smo kutiju sa šifrom. Koji broj probaš prvi?",
-    choiceOrder: ["flirty", "funny", "emotional"],
+    intro: "Ljetovanje. Muzika. Mi.",
+    question: "Da mozemo sutra ici na Awakenings - sta bi bio nas plan?",
+    choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Datum kad smo se upoznali",
-        reaction: "To je i moj odgovor. Kutija se otvara.",
-        text: "Neki datumi su upisani u srce. Naš je jedan od njih. I naravno da je to bila šifra - ljubav otvara sve brave."
+        label: "Samo nas dvoje, muzika, bez briga i bez telefona",
+        reaction: "To je plan. Konkretno.",
+        text: "Postoje dogadjaji koji ti ostanu. Posebno kad si tamo s nekim ko ti je vazan. Jedva cekam da imamo taj dogadjaj."
       },
       flirty: {
-        label: "1234 - nekad najjednostavnije rješenje radi",
-        reaction: "Hakerski um! Ali ne, nije 1234...",
-        text: "Jednostavnost je podcijenjeni superlativ. Ali za neke brave trebaš ključ koji ima samo srce. Probaj ponovo!"
+        label: "Pegassi, ti uz mene, sve ostalo ne postoji",
+        reaction: "Zvuci ko nesto sto bi se desilo XD",
+        text: "Pegassi, muzika, ti blizu - ne treba mi vise od toga. To bi bio jedan od nasih dana."
       },
       funny: {
-        label: "0000 - jer uvijek zaboravim šifre",
-        reaction: "Klasika! Ali kutija se ne otvara!",
-        text: "Hahaha, 0000 je šifra za kofere, ne za romantične kutije! Ali tvoj pristup rješavanju problema je... jedinstven."
+        label: "Ja bi tancala, ti bi gledao XD",
+        reaction: "Ili oboje tancamo, ne sudim XD",
+        text: "Na kraju uvijek zakljucimo isto - vibe dobar, muzika dobra, bili smo zajedno. I to je sve sto treba."
       }
     },
     nextCardId: "15"
@@ -352,24 +352,24 @@ const cards = [
   {
     id: "15",
     chapter: "Poglavlje 5",
-    intro: "Zadnji escape room izazov...",
-    question: "Našli smo poruku u boci! Šta piše?",
+    intro: "Nesto za buducnost...",
+    question: "Koji nas zajednicki plan ti je najdrazi?",
     choiceOrder: ["funny", "flirty", "emotional"],
     responses: {
       emotional: {
-        label: "Pravi blago si već našla",
-        reaction: "I ti si moje blago.",
-        text: "Ponekad tražimo odgovore daleko, a oni su tu - u osobi pored nas. Ti si sve blago koje mi treba."
+        label: "Da jednog dana ne moramo raditi za nekoga drugog",
+        reaction: "Radimo na tome.",
+        text: "Nije samo san. Ima ideja, ima planova, ima koraka. I ima nas dvoje koji to radimo zajedno."
       },
       flirty: {
-        label: "Slijedi zvijezde... i osobu pored tebe",
-        reaction: "Zvijezde vode ka tebi. Uvijek.",
-        text: "Navigacija po zvijezdama je romantična, ali ja imam bolji kompas - osjećaj koji me uvijek vodi ka tebi."
+        label: "Nesto sto bi nas stavilo na istu adresu 24/7",
+        reaction: "Rado XD",
+        text: "Neke ideje su jednostavne. Ova je mozda i najjednostavnija."
       },
       funny: {
-        label: "Izlaz je bio otključan cijelo vrijeme",
-        reaction: "NEEEE! Hahaha, klasični plot twist!",
-        text: "Čekaj... znači proveli smo sve ovo vrijeme tražeći izlaz koji je bio otvoren?! Barem smo se zabavili!"
+        label: "Onaj biznis koji smislimo u 2 ujutru i zaboravimo do jutra XD",
+        reaction: "Sve bisnis ideje u 2 ujutru su genius XD",
+        text: "Slucaj: smislimo nesto, kazemo 'ovo je to', zaspimo, zaboravimo. Ali neka ta energija bude za nesto stvarno jednog dana."
       }
     },
     nextCardId: "16"
@@ -377,24 +377,24 @@ const cards = [
   {
     id: "16",
     chapter: "Poglavlje 6",
-    intro: "Putovanje u budućnost...",
-    question: "Gdje se vidiš sa mnom za 5 godina?",
+    intro: "Malo u buducnost...",
+    question: "Gdje se vidis sa mnom za 5 godina?",
     choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "U toplom domu punom ljubavi",
-        reaction: "Gradimo ga zajedno, cigle po cigle.",
-        text: "Dom nije mjesto - dom je osjećaj. I s tobom je svako mjesto dom. Jedva čekam da vidim šta ćemo izgraditi."
+        label: "Na nekoj kafi, jutro, sunce, nismo ni pricali nista a opet sretni",
+        reaction: "Jedno od mojih omiljenih mjesta je tacno to.",
+        text: "Nije potreban dogadjaj. Nije potrebno nista posebno. Jutarnja kafa sa nekim ko ti znaci je ponekad vise od svega."
       },
       flirty: {
-        label: "Na plaži, sami, bez briga",
-        reaction: "Morski zrak i ti... savršenstvo.",
-        text: "Zaslužujemo miris mora, topli pijesak i beskonačne zalaze sunca. I zaslužujemo to zajedno."
+        label: "Bilo gdje dok smo zajedno, iskreno",
+        reaction: "Onda je sve destinacija.",
+        text: "Ne zamaram se adresom. Zamara me ko ce biti pored mene. I vec znam odgovor."
       },
       funny: {
-        label: "S dva psa i Netflix pretplatom",
-        reaction: "Psi, Netflix i ti? Potpisao!",
-        text: "Plan je jednostavan ali savršen: dva psa (jedan veliki, jedan mali), neograničen Netflix, i vikend maraton serija. Šta više treba?"
+        label: "Ista soba, isti game, mozda veci TV XD",
+        reaction: "To je jedina evolucija koja nam treba XD",
+        text: "Plan se ne mijenja drasticno - samo upgrade na hardver. I mozda malo veci kauc."
       }
     },
     nextCardId: "17"
@@ -402,24 +402,24 @@ const cards = [
   {
     id: "17",
     chapter: "Poglavlje 6",
-    intro: "Da li smijem biti iskren?",
-    question: "Šta me čini drugačijim od svih ostalih?",
+    intro: "Reci mi iskreno...",
+    question: "Sta me cini razlicitim od svih ostalih?",
     choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Kako me slušaš kad pričam",
-        reaction: "Svaka tvoja riječ mi je važna.",
-        text: "Slušanje je najrjeđi dar koji neko može dati. Potpuna pažnja, bez provjere telefona, bez žurbe. To je ljubav u praksi."
+        label: "Sto ne bjezis od teskih razgovora iako ih ne volis",
+        reaction: "Tesko, al vridi svaki put.",
+        text: "Nije uvijek lako. Ali uvijek se pokazalo da je bolje kad se kaze nego kad ostane u sebi. To me naucila upravo ti."
       },
       flirty: {
-        label: "Hemija koju ne mogu objasniti",
-        reaction: "Neke stvari ne trebaju objašnjenje.",
-        text: "Nauka može objasniti gravitaciju, ali ne može objasniti zašto me privlačiš ovako jako. I to je u redu."
+        label: "Hemija koja nema objasnjenja i ne treba ga imati",
+        reaction: "Nauka ne moze to izmjeriti.",
+        text: "Postoje stvari koje se osjete a ne analiziraju. I ja te volim bas ovako - bez potrebe za dokazivanjem."
       },
       funny: {
-        label: "Tvoja sposobnost da uvijek nađeš parking",
-        reaction: "To JE rijetki talent, priznajem!",
-        text: "Dok drugi kruže satima, ja nađem parking u prvom krugu. Supermoć? Možda. Ali hej, to je praktično!"
+        label: "Jedini si koji ne sudi kad narudzba stigne s Temua XD",
+        reaction: "Nikad sudim. Pratim radoznalo XD",
+        text: "Naprotiv - cekam s uzbudenjem svaki paket. To je nase zajednicko iskustvo sad."
       }
     },
     nextCardId: "18"
@@ -427,24 +427,24 @@ const cards = [
   {
     id: "18",
     chapter: "Poglavlje 6",
-    intro: "Hipoteza za dvoje...",
-    question: "Da možemo teleportovati se sada, kuda idemo?",
+    intro: "Zamislimo zajedno...",
+    question: "Da mozemo teleportovati odmah - kuda idemo?",
     choiceOrder: ["funny", "emotional", "flirty"],
     responses: {
       emotional: {
-        label: "Na mjesto gdje smo se prvi put sreli",
-        reaction: "Vratio bih se tamo sa tobom u sekundi.",
-        text: "Neka mjesta nose magiju. Mjesto gdje smo se sreli je jedno od njih. Svaki put kad prođem tuda, osjetim leptiriće."
+        label: "Na neko mirno place, bez telefona, samo mi",
+        reaction: "Morski zrak i ti. Jedno od mojih cestih misli.",
+        text: "Zasluzujemo mirno. Zasluzujemo bez alarma, bez posla, bez ikoga. I zasluzujemo to zajedno."
       },
       flirty: {
-        label: "Pariz, grad svjetlosti",
-        reaction: "Eiffelov toranj, ti i ja... uskoro!",
-        text: "Pariz je za ljubavnike, a mi smo definitivno to. Jednog dana ćemo šetati pored Seine i sjetiti se ovog trenutka."
+        label: "Kod mene. Ili kod tebe. Svejedno XD",
+        reaction: "Najkraci teleport moguc.",
+        text: "Nekad najkraca distanca je i dalje premala. Ali ide se."
       },
       funny: {
-        label: "U krevet, umorna sam",
-        reaction: "Hahaha! Najiskreniji odgovor ikad!",
-        text: "Zaboravi Pariz i tropska ostrva. Najluksuznija destinacija je topao krevet u nedjelju ujutro. S tobom, naravno."
+        label: "U krevet jer sam umorna i to je sve XD",
+        reaction: "Najiskreniiji moguc odgovor.",
+        text: "Ponekad je najluksuznija destinacija - topao krevet u srijedu popodne. Rado pratim."
       }
     },
     nextCardId: "19"
@@ -452,24 +452,24 @@ const cards = [
   {
     id: "19",
     chapter: "Poglavlje 7",
-    intro: "Iskrenost na djelu...",
-    question: "Koja je moja najslađa mana?",
-    choiceOrder: ["emotional", "funny", "flirty"],
+    intro: "Iskrenost bez filtera...",
+    question: "Koja moja navika te nasmije iako ne bi smjela?",
+    choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Previše se brineš za druge",
-        reaction: "Jer mi je stalo. Posebno do tebe.",
-        text: "Brinuti se je moj način da kažem 'volim te'. Možda pretjerujem, ali radije bih pretjerao u brizi nego da propustim da budem tu."
+        label: "Kad probas biti ozbiljan al te izda smijeh XD",
+        reaction: "Uvijek me izda u najgorem trenutku.",
+        text: "Ne mogu kontrolisati taj smijeh. Pogotovo kad bi trebalo biti ozbiljno. I nekako uvijek dodje u pravom trenutku."
       },
       flirty: {
-        label: "Kad se praviš cool, a zapravo si nježan",
-        reaction: "Shhh! Čuvaš mi tajnu?",
-        text: "Ok, priznato je. Ispod cool fasade je neko ko se topi kad ga ti zagrliš. Ali to ostaje između nas!"
+        label: "Kad se pravis hladan al onda napravis nesto preslatko XD",
+        reaction: "Ne dogadja se. Ne znam o cemu pricas. XD",
+        text: "Ok mozda ponekad. Mozda. Al to ostaje izmedju nas."
       },
       funny: {
-        label: "Tvoja opsesija redom u frižideru",
-        reaction: "Frižider MORA biti organiziran!",
-        text: "Gledaj, povrće ide u ladicu, mlijeko na vrata, ostaci od ručka na srednju policu. To je SISTEM. Poštuj sistem!"
+        label: "Kad planiras nesto mega detaljno a onda improviziras sve XD",
+        reaction: "Plan je dekoracija. Impro je zivot.",
+        text: "Planiram detaljno zato sto mi je interesantan proces. Sto ne znaci da ce se isto desiti. Eto."
       }
     },
     nextCardId: "20"
@@ -478,23 +478,23 @@ const cards = [
     id: "20",
     chapter: "Poglavlje 7",
     intro: "Duboko udahni...",
-    question: "Kad ti je najteže, šta ti treba od mene?",
+    question: "Kad ti je najteze, sta ti od mene treba?",
     choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Samo da budeš tu, tiho, pored mene",
-        reaction: "Tu sam. Uvijek.",
-        text: "Ponekad riječi nisu potrebne. Dovoljno je znati da nisi sam. I ja ću uvijek biti ta tišina koja grli."
+        label: "Da budes tu bez pitanja i bez savjeta - samo tu",
+        reaction: "Tu sam. Uvijek cu biti.",
+        text: "Nije uvijek potrebna rijec. Ponekad je samo prisutnost - bez pritiska, bez ocekivanja. I to cu uvijek znati dati."
       },
       flirty: {
-        label: "Zagrljaj koji traje malo duže nego inače",
-        reaction: "Moji zagrljaji nemaju vremensko ograničenje.",
-        text: "Zagrljaj je lijek za sve. I moji za tebe uvijek traju toliko koliko ti treba - plus malo više, za svaki slučaj."
+        label: "Zagrljaj koji nema vremensko ogranicenje",
+        reaction: "Moji zagrljaji nemaju tajmer. Narocito tvoji.",
+        text: "Svaki zagrljaj traje koliko treba. Ponekad vise, ponekad samo sekund duze. Al nikad premalo."
       },
       funny: {
-        label: "Donesi čokoladu i ne postavljaj pitanja",
-        reaction: "Čokolada je na putu! Zero pitanja!",
-        text: "Razumijem zadatak: čokolada, ćutanje, prisutnost. To je formular koji sam savladao. Bonus: dobijaš i čaj."
+        label: "Caj, cutanje i da me pusti na miru da se naljutim XD",
+        reaction: "Caj vec kuhano. Cutim. Cekam. XD",
+        text: "Formula prihvacena i savladana. Caj bez pitanja, prisutnost bez komentara. I onda kad budes htjela pricati - tu sam."
       }
     },
     nextCardId: "21"
@@ -503,23 +503,23 @@ const cards = [
     id: "21",
     chapter: "Poglavlje 7",
     intro: "Malo igre uloga...",
-    question: "Da sam superheroj, koja bi bila moja supermoć?",
+    question: "Da sam superheroj - koja bi bila moja supermoc?",
     choiceOrder: ["funny", "flirty", "emotional"],
     responses: {
       emotional: {
-        label: "Moć da liječiš tugu jednim dodirom",
-        reaction: "Kad bih mogao, koristio bih je samo za tebe.",
-        text: "Nažalost, nemam supermoć. Ali imam dvije ruke za zagrljaj i srce koje te voli. I to je blizu dovoljno."
+        label: "Sposobnost da uvijek znas kad mi nesto nije dobro iako nisam rekla",
+        reaction: "To nije supermoc - to je paznja. I trudim se.",
+        text: "Ne citam misli. Ali pazim. I kad pazis na nekog, neke stvari dodu same od sebe."
       },
       flirty: {
-        label: "Moć da zaustaviš vrijeme kad smo zajedno",
-        reaction: "Svaki trenutak s tobom je prekratak.",
-        text: "Da mogu zaustaviti vrijeme, zaustavio bih ga u svakom trenutku koji provedemo zajedno. Jer nikad nije dovoljno."
+        label: "Moc da zaustavi vrijeme kad smo zajedno",
+        reaction: "Svaki put kad si tu, prode prebrzo.",
+        text: "Da imam tu moc - zaustavio bih dosta trenutaka. Uglavnom ovih mirnih, obicnih, kojih nismo ni svjesni."
       },
       funny: {
-        label: "Moć da uvijek pogodi šta želiš za večeru",
-        reaction: "TO bi bila najkorisnija supermoć IKAD!",
-        text: "Zamislite: 'Šta ćemo večeras?' i ja ODMAH znam odgovor. Spašavamo 45 minuta diskusije dnevno. Nobelova nagrada!"
+        label: "Sposobnost da uvijek nadje parking XD",
+        reaction: "PRESUPERMOC. Ne salis se XD",
+        text: "Dok ostali kruze 20 minuta - ja vec sjedim i cekam. To je talenat koji je potcjenjen."
       }
     },
     nextCardId: "22"
@@ -527,24 +527,24 @@ const cards = [
   {
     id: "22",
     chapter: "Poglavlje 8",
-    intro: "Prepolovili smo igru! Bravo!",
-    question: "Kako ti se sviđa ova igra do sad?",
+    intro: "Polovina! Bravo, macak 🫶🏻",
+    question: "Kako ti se svidja igra do sad?",
     choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Svaka kartica me nasmije ili rasplače",
-        reaction: "To je i bio cilj - da osjetiš.",
-        text: "Ova igra je ogledalo naše veze. Svaka kartica je mali prozor u ono što dijelimo. I to je najljepše."
+        label: "Svaka kartica me nasmije ili gane malo",
+        reaction: "To je i bio cilj. Bas to.",
+        text: "Ova igra je mali prozor u nas. Nista nije izmisljeno. Sve je nesto nase. I drago mi je da prolazis kroz to."
       },
       flirty: {
-        label: "Ne mogu prestati čitati!",
-        reaction: "Drago mi je... nastavak je još bolji!",
-        text: "Ovo je tek pola! Druga polovina donosi još više iznenađenja, emocija i smijeha. Spremi se!"
+        label: "Ne mogu prestati citati XD",
+        reaction: "A nastavak je jos bolji.",
+        text: "Ovo je tek polovina. Ima jos pitanja, izjava i mozda neke provale. Ostani uz igru."
       },
       funny: {
-        label: "Šta je sljedeće, kviz iz matematike?",
-        reaction: "2+2 = ti i ja! Eto, prošla si!",
-        text: "Haha, obećavam da nema matematike. Ali ima još puno pitanja, smijeha i možda koji plot twist!"
+        label: "Rekla bi da je pretjerano romanticno al me 'vojim te' kartica ubila XD",
+        reaction: "XD Sve je po planu.",
+        text: "Kad je 'vojim te' postalo romantika onda znaci da smo to mi napravili. I to nije lose."
       }
     },
     nextCardId: "23"
@@ -553,23 +553,23 @@ const cards = [
     id: "23",
     chapter: "Poglavlje 8",
     intro: "Tajne, tajne...",
-    question: "Koja je tvoja tajna želja za nas dvoje?",
+    question: "Koja ti je tajna zelja za nas dvoje?",
     choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Da nikad ne prestanemo pričati ovako",
-        reaction: "Razgovor je kisik naše veze.",
-        text: "Dok pričamo, živimo. Dok slušamo, volimo. Obećavam ti da ću uvijek imati vrijeme za naše razgovore."
+        label: "Da imamo bar jedan dan sedmicno koji je samo nas",
+        reaction: "To nije zelja - to je plan.",
+        text: "Jedan dan sedmicno. Bez ostalih, bez obaveza, bez planova. Samo mi. Radimo na tome."
       },
       flirty: {
-        label: "Iznenadi me nečim - ne kažem čim!",
-        reaction: "Iznenađenja su u pripremi... strpljenje!",
-        text: "Volim iznenađenja koliko i ti. I obećavam da ću nastaviti da te iznenađujem - kad najmanje očekuješ."
+        label: "Nesto sto cu ti saptati jedan dan XD",
+        reaction: "Drzi tu zelju. I saptaj je uskoro.",
+        text: "Neke zelje su lose u kartici. Ali dobro uzivo. Sacuvaj je."
       },
       funny: {
-        label: "Da konačno naučiš plesati!",
-        reaction: "Hej! Moj ples je... jedinstven!",
-        text: "Ok, priznajem da moji plesni pokreti nisu za MTV. Ali dok te nasmiju, mislim da rade savršeno!"
+        label: "Da Pero jednog dana skonta sta je 'gg' XD",
+        reaction: "To je zelja svih nas XD",
+        text: "Pero napreduje. Polako, ali napreduje. Vjerujemo u Pera."
       }
     },
     nextCardId: "24"
@@ -577,24 +577,24 @@ const cards = [
   {
     id: "24",
     chapter: "Poglavlje 8",
-    intro: "Zamišljamo zajedno...",
-    question: "Da gradimo kuću od nule, šta je MUST HAVE?",
+    intro: "Gradimo nesto...",
+    question: "Da gradimo kucu od nule, koji je MUST HAVE?",
     choiceOrder: ["funny", "emotional", "flirty"],
     responses: {
       emotional: {
-        label: "Veliki prozor s pogledom na zalazak sunca",
-        reaction: "Gledat ćemo ih zajedno svaku večer.",
-        text: "Zamisliti zajedničku kuću je zamisliti zajedničku budućnost. I u njoj, najljepši detalj je pogled koji dijelimo."
+        label: "Veliki balkon gdje mozemo sjest ujutru i pit kafu",
+        reaction: "Kapucino, jutarnje sunce, ti - sve je tu.",
+        text: "Jutarnja kafa na balkonu. Nije glamurozno ali je jedno od mojih najomiljenijih zamisljenih trenutaka."
       },
       flirty: {
-        label: "Ogromnu kadu za dvoje",
-        reaction: "Sad pričamo! S mjehurićima?",
-        text: "Velika kada, svijeće, i apsolutno nikakva žurba. To je naš mali raj u vlastitom domu."
+        label: "Neka soba gdje nema telefona, samo mi XD",
+        reaction: "Ime te sobe je 'plan'.",
+        text: "Jedna soba. Bez interneta. Bez notifikacija. Samo mi dvoje i sta god odlucimo raditi s tim vremenom."
       },
       funny: {
-        label: "Tajnu sobu za grickalice",
-        reaction: "GENIJALNO! S automatom za kokice!",
-        text: "Tajna soba puna čipsa, čokolade i kokica. Sa zaključavanjem na otisak prsta. I kauč. I TV. Ok, to je drugi dnevni boravak."
+        label: "Tajna soba za grickalice i cips XD",
+        reaction: "MUST HAVE. Otisak prsta za ulaz.",
+        text: "Soba zakljucana, puna cips, cokolade, slusalica i dobrog wi-fi. Dnevni boravak broj 2. Prihvaceno."
       }
     },
     nextCardId: "25"
@@ -602,24 +602,24 @@ const cards = [
   {
     id: "25",
     chapter: "Poglavlje 9",
-    intro: "Približavamo se kraju, ali emocije rastu...",
-    question: "Šta bi mi rekla da imam samo 60 sekundi da te slušam?",
+    intro: "Priblizavamo se kraju - ali osjeci rastu...",
+    question: "Sta bi mi rekla da imam samo 60 sekundi da te slusam?",
     choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Hvala ti što postojiš u mom životu",
-        reaction: "Ti si razlog zašto sve ima smisla.",
-        text: "60 sekundi je premalo za sve što osjećam. Ali ovo je dovoljno: ti si najbolja stvar koja mi se desila."
+        label: "Hvala ti sto ostajes iako nije uvijek lako",
+        reaction: "I tebi hvala. Za isto.",
+        text: "Nije uvijek lako. I oboje znamo to. Ali uvijek se doslo do sutra. I sutra je uvijek bilo bolje."
       },
       flirty: {
-        label: "Ne puštaj me nikad",
-        reaction: "Nikad. To je obećanje.",
-        text: "Tri riječi, ali nose težinu svemira. Ne puštam te. Ni danas, ni sutra, ni ikad."
+        label: "Ne pustaj me XD",
+        reaction: "Nikad. To je obecanje.",
+        text: "Tri rijeci. Kratke. I nose vise od mnogo dugih. Ne pustam. Ni danas ni sutra."
       },
       funny: {
-        label: "Zapravo trebam 5 minuta, ne 60 sekundi",
-        reaction: "Haha! Za tebe, neograničeno vrijeme!",
-        text: "Evo, ukidam tajmer. Govori koliko hoćeš, slušam te. Doslovno - uvijek imam vrijeme za tebe."
+        label: "Zapravo treba mi 5 minuta ne 60 sekundi XD",
+        reaction: "Za tebe - neograniceno. Reci.",
+        text: "Ukidam tajmer. Govori koliko hoces. Slusam uvijek."
       }
     },
     nextCardId: "26"
@@ -627,24 +627,24 @@ const cards = [
   {
     id: "26",
     chapter: "Poglavlje 9",
-    intro: "Muzički kutak...",
-    question: "Koja pjesma te podsjeti na nas?",
+    intro: "Muzicki kutak...",
+    question: "Koja bi muzika bila soundtrack naseg filma?",
     choiceOrder: ["flirty", "funny", "emotional"],
     responses: {
       emotional: {
-        label: "Nešto tiho i duboko, kao naša veza",
-        reaction: "Pusti je. Plesat ćemo u dnevnom boravku.",
-        text: "Najljepše pjesme su one koje te podsjete na nekoga. I svaka tiha melodija me vodi natrag ka tebi."
+        label: "Nesto tiho i duboko za mirne trenutke",
+        reaction: "Znam tacno koji zvuk mislis.",
+        text: "Ima muzike koja te odvede u momenat bez da pokusavas. Svaki put kad je cujem, tu si."
       },
       flirty: {
-        label: "Nešto sa bass-om i energijom!",
-        reaction: "Naša energija je zarazna!",
-        text: "Između nas nikad ne fali energije. Svaki dan je novi beat, nova avantura, novi razlog za ples."
+        label: "Anelie Lens ili Pegassi - ne znas dok ih ne cujes uzivo",
+        reaction: "Aj idemo na Awakenings i dozivimo to.",
+        text: "Neka muzika trazis uzivo. I tamo cemo biti. Jednog dana."
       },
       funny: {
-        label: "Macarena, naravno",
-        reaction: "HEEEY MACARENA! Haha, zašto?!",
-        text: "Ne znam kako smo od romantične igre došli do Macarene, ali ovdje smo i sviđa mi se! Heeey!"
+        label: "Ona Gregorova pjesma kojoj se ne mozes otresti XD",
+        reaction: "Svi je pjevaju protiv svoje volje XD",
+        text: "Jebem ti refren koji se zalijepi za glavu. Ako nam je to soundtrack - bar je pamtljiv."
       }
     },
     nextCardId: "27"
@@ -653,23 +653,23 @@ const cards = [
     id: "27",
     chapter: "Poglavlje 9",
     intro: "Iskrenost bez filtera...",
-    question: "Šta nikad ne želiš da se promijeni kod nas?",
+    question: "Sta nikad ne zelis da se promijeni kod nas?",
     choiceOrder: ["funny", "emotional", "flirty"],
     responses: {
       emotional: {
-        label: "Kako se osjećam sigurno s tobom",
-        reaction: "Čuvat ću tu sigurnost kao najveće blago.",
-        text: "Sigurnost u vezi je svetinja. I obećavam ti da ću uvijek raditi na tome da se osjećaš voljeno i zaštićeno."
+        label: "Kako mozemo pricati o svemu bez straha",
+        reaction: "I to gradimo svaki dan. Vrijedi.",
+        text: "Bez straha od reakcije. Bez hodanja po jajima. Samo rijeci. To je ono sto zelim cuvati."
       },
       flirty: {
-        label: "Iskra između nas",
-        reaction: "Ta iskra ne gasi se nikad.",
-        text: "Vatra se mora održavati, ali naša iskra je drugačija - što duže gorimo, to smo jači. To je naša magija."
+        label: "Iskra - ona koje nema objasnjenja",
+        reaction: "Ona ne gasi. I ne dam joj.",
+        text: "Sve se mijenja. Ali ono sto nas privlaci jedno drugom - to nije za mijenjanje. Ni ne zelim."
       },
       funny: {
-        label: "Naše unutrašnje šale koje niko ne razumije",
-        reaction: "Tajni jezik: aktiviran zauvijek!",
-        text: "Naše inside jokes su svetinja. Pogled, jedna riječ, i oboje se smijemo dok svi ostali gledaju zbunjeno. Savršeno!"
+        label: "Nase inside joke koje niko drugi ne razumije XD",
+        reaction: "Tajni jezik: aktivan zauvijek.",
+        text: "Pogled, jedna rijec, i oboje razumijemo sta je receno a niko oko nas ne zna. To je nasa stvar. Cuvamo je."
       }
     },
     nextCardId: "28"
@@ -677,24 +677,24 @@ const cards = [
   {
     id: "28",
     chapter: "Poglavlje 10",
-    intro: "Posljednje poglavlje... ali ne i kraj.",
-    question: "Da ti pišem pismo, kako bi počelo?",
+    intro: "Zadnje poglavlje. Ali ne i kraj.",
+    question: "Da ti pisem pismo, kako bi pocelo?",
     choiceOrder: ["emotional", "flirty", "funny"],
     responses: {
       emotional: {
-        label: "Draga moja, ovo sam trebao napisati odavno...",
-        reaction: "I evo ga... iz srca.",
-        text: "Neka pisma se pišu godinama u glavi prije nego što dođu na papir. Ovo je jedno od njih. Svaka riječ je iskrena."
+        label: "'Vojim te' - i to je jedini uvod koji odgovara",
+        reaction: "I ja vojim tebe. Uvijek.",
+        text: "Nema boljeg uvoda. Jednostavno, nase, iskreno. Vojim te - i sve sto dolazi posle tog pocinje dobro."
       },
       flirty: {
         label: "Hej ti, da, ti s tim osmijehom...",
-        reaction: "Uvijek ću te oslovljavati s osmijehom.",
-        text: "Od svih ljudi na svijetu, tvoj osmijeh je onaj koji tražim. I svaki put kad ga vidim, znam da sam na pravom mjestu."
+        reaction: "Uvijek te prepoznam po osmjehu XD",
+        text: "Od svih osmijeh koji vidim - tvoj je onaj koji trazim. I svaki put kad ga nadjem, znam gdje trebam biti."
       },
       funny: {
-        label: "HITNO: Pročitaj dok je čokolada još topla",
-        reaction: "Haha! Uz pismo ide i čokolada, naravno!",
-        text: "Svako pismo treba pratiti čokolada. To je zakon. Moj zakon. I ti si ga upravo odobrila."
+        label: "HITNO: Procitaj dok je caj jos topao XD",
+        reaction: "Uz pismo ide i caj. Zakon.",
+        text: "Svako moje pismo tebi dolazi s cajem. Ili kafom. Ili oboje. To je sada tradicija."
       }
     },
     nextCardId: "29"
@@ -702,24 +702,24 @@ const cards = [
   {
     id: "29",
     chapter: "Poglavlje 10",
-    intro: "Pred sam kraj...",
-    question: "Šta je najvažnija stvar koju si naučila iz ove igre?",
+    intro: "Jos malo...",
+    question: "Sta je najvaznije sto si naucila iz ove igre?",
     choiceOrder: ["flirty", "emotional", "funny"],
     responses: {
       emotional: {
-        label: "Da nas male stvari čine velikima",
-        reaction: "Male stvari, veliki osjećaji.",
-        text: "Ova igra je dokaz da ne trebaju veliki gestovi da pokažeš ljubav. Trebaju pažnja, trud i QR kodovi. Ok, možda ne QR kodovi, ali prvih dvoje sigurno."
+        label: "Da mi male stvari znace vise nego sto sam mislila",
+        reaction: "I meni su male stvari uvijek bile sve.",
+        text: "Ova igra je samo skup malih stvari. I male stvari su ono sto pamtimo duze od svega."
       },
       flirty: {
-        label: "Da si pun iznenađenja",
-        reaction: "A tek šta sve planiram...",
-        text: "Iznenađenja ne prestaju ovdje. Ovo je samo početak. Imam još toliko toga za podijeliti s tobom."
+        label: "Da si pun iznenadjenja - i da vise nece biti XD",
+        reaction: "Ima jos. Budi sigurna.",
+        text: "Ovo je bio samo pocetni nivo. Ima jos kartice, jos iznenadjenja, jos svega. Strpljenje."
       },
       funny: {
-        label: "Da previše vremena provodiš za kompjuterom",
-        reaction: "Hej, ovo sam pravio ZA TEBE!",
-        text: "Ok, DA, proveo sam sate praveći ovo. Ali svaka sekunda je bila posvećena tebi. Uračunaj to u romantiku!"
+        label: "Da si proveo previse vremena pravecu ovo XD",
+        reaction: "Svaka sekunda za tebe.",
+        text: "OK da. Proveo sam dosta vremena. Ali svaka sekunda je bila cisto zadovoljstvo. I drago mi je sto si do kraja."
       }
     },
     nextCardId: "30"
@@ -727,24 +727,24 @@ const cards = [
   {
     id: "30",
     chapter: "Poglavlje 10",
-    intro: "Ovo je posljednja kartica. Ali naša priča tek počinje...",
-    question: "Kako završavamo ovu avanturu?",
+    intro: "Ovo je zadnja kartica. Nasa prica tek pocinje.",
+    question: "Kako zavrsavamo ovu avanturu?",
     choiceOrder: ["emotional", "funny", "flirty"],
     responses: {
       emotional: {
-        label: "Sa suzom sreće i zagrljajom",
-        reaction: "Dođi tu. Zagrljaj čeka.",
-        text: "Svaka stranica ove sveske je dio naše priče. Hvala ti što si je prošla do kraja. Volim te - i to nikad neće biti posljednja kartica."
+        label: "Sa zagrljajom i svim rijecima koje smo nekad propustili reci",
+        reaction: "Dodi tu. Zagrljaj ceka.",
+        text: "Svaka stranica ove sveske je dio nase price. Hvala ti sto si prosla do kraja. Vojim te - i to nece biti zadnja kartica nikad."
       },
       flirty: {
-        label: "Ovo nije kraj, nego nastavak...",
-        reaction: "Sezona 2 je u pripremi!",
-        text: "Kraj? Kakav kraj? Ovo je tek uvod u sve avanture koje nas čekaju. Spremi se za sequel!"
+        label: "Ovo nije kraj, ovo je jos jedan pocetak",
+        reaction: "Sezona 2 se pise XD",
+        text: "Kraj? Kakav kraj. Ovo je uvod. Ima jos avantura, jos kasnih noci, jos gaming sesija, jos casica, jos svega. Spremi se."
       },
       funny: {
-        label: "Sa pitanjem: ima li još kartica?!",
-        reaction: "Za sad ne, ali... ko zna?",
-        text: "Zvanično: ovo je posljednja kartica. Nezvanično: nikad ne reci nikad. Možda se ova sveska jednog dana nastavi. A do tada - volim te, ludačo!"
+        label: "Sa pitanjem - ima li bonus kartice XD",
+        reaction: "Za sad nema. Ko zna sutra XD",
+        text: "Zvanicno: zadnja kartica. Nezvanicno: ne reci nikad nikad. A do tada - vojim te, mackic 🫶🏻"
       }
     },
     nextCardId: null
